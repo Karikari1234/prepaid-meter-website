@@ -16,7 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <title>BPDB Prepaid Metering System Website</title>
+      </head>
+      <body className={inter.className}>
+        <main className='w-100 mx-3.5 md:w-5/6 md:mx-auto'>{children}</main> 
+      </body>
     </html>
   )
 }
