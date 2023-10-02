@@ -1,5 +1,5 @@
 import Image from 'next/image'
 
 export default function Home() {
-  return <h1 className="text-center">BPDB Prepaid Metering System</h1>
+  return <h1 className="text-center text-6xl">BPDB Prepaid Metering System</h1>
 }
