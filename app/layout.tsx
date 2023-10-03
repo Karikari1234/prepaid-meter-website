@@ -20,7 +20,7 @@ export default function RootLayout({
         <title>BPDB Prepaid Metering System Website</title>
       </head>
       <body className={inter.className}>
-        <main className='w-100 mx-3.5 md:w-5/6 md:mx-auto'>{children}</main> 
+        <main className='w-100 mx-3.5 md:w-5/6 md:mx-auto bg-green-light'>{children}</main> 
       </body>
     </html>
   )
