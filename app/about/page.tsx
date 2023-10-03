@@ -1,11 +1,11 @@
-import About from '@/components/About';
-import Link from 'next/link';
-const about = () => {
+import AboutComponent from '@/components/About';
+
+const About = () => {
   return (
     <div>
-      <About />
+      <AboutComponent />
     </div>
   );
 }
 
-export default about;
+export default About;
