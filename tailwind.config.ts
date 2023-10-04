@@ -1,20 +1,22 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        'green':'#00513D',
-        'green-light':'#00CC99',
-        
+        green: "#00513D",
+        "green-light": "#00CC99",
+      },
+      gridTemplateColumns: {
+        footer: "300px repeat(4,1fr)",
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
