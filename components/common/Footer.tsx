@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="grid grid-cols-2 grid-row-3 gap-4 justify-between mb-4 md:mb-0 md:grid-cols-4 md:col-span-4 md:gap-x-4 md:mt-2 md:justify-end">
             <div>
               <div className="font-semibold mb-1 md:mb-8">Meter Manual</div>
-              <ul className="flex flex-col space-y-4">
+              <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
                   <Link className="font-light text-sm" href="path">
                     Hexing Meter Manual
@@ -57,7 +57,7 @@ const Footer = () => {
             </div>
             <div>
               <div className="font-semibold mb-1 md:mb-8">Quicklinks</div>
-              <ul className="flex flex-col space-y-4">
+              <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
                   <Link className="font-light text-sm" href="path">
                     System Operations Manual
@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
             <div>
               <div className="font-semibold mb-1 md:mb-8">About</div>
-              <ul className="flex flex-col space-y-4">
+              <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
                   <Link className="font-light text-sm" href="path">
                     Why Prepaid
@@ -99,7 +99,7 @@ const Footer = () => {
             </div>
             <div>
               <div className="font-semibold mb-1 md:mb-8">Help</div>
-              <ul className="flex flex-col space-y-4">
+              <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
                   <Link className="font-light text-sm" href="path">
                     FAQ
