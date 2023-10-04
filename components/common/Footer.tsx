@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="flex-col justify-center">
             <Link href="/">
               <Image
-                src="/images/site-logo.png"
+                src="/site-logo.png"
                 alt="BPDB logo"
                 width={100}
                 height={100}
