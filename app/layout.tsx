@@ -20,8 +20,8 @@ export default function RootLayout({
       <head>
         <title>BPDB Prepaid Metering System Website</title>
       </head>
-      <body className={inter.className}>
-        <main className="relative h-screen w-full md:mx-auto md:w-5/6 md:p-0">
+      <body className={`${inter.className} relative`}>
+        <main className="h-screen w-full md:mx-auto md:w-5/6 md:p-0">
           {children}
         </main>
         <Footer />
