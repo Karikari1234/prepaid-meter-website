@@ -19,7 +19,7 @@ const HeroSection = () => {
       </div>
       <div className="">
         <h1
-          className={`${poppins.className}  font-bold  text-4xl text-center leading-normal mb-5 md:text-6xl md:text-left md:leading-tight animate-fade-up animate-once`}
+          className={`${poppins.className} font-bold  text-4xl text-center leading-normal mb-5 md:text-6xl md:text-left md:leading-tight animate-fade-up animate-once`}
         >
           Welcome to <span className="whitespace-nowrap">Prepaid Metering</span>{" "}
           System BPDB
@@ -31,7 +31,7 @@ const HeroSection = () => {
         </p>
         <div className="flex gap-1 justify-center md:justify-normal md:gap-6">
           <Link href="/">
-            <button className="bg-green border border-green hover:border-transparent hover:bg-green-deep text-white py-2 px-4 rounded">
+            <button className="bg-green border border-green hover:border-transparent hover:bg-green-deep text-white py-2 px-4 rounded shadow-2xl">
               Meter Charges
             </button>
           </Link>

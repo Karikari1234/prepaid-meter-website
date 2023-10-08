@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.heading-text {
+    @apply font-bold  text-4xl text-center leading-normal mb-5 md:text-6xl md:text-left md:leading-tight;
+}
+

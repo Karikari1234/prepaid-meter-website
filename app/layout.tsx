@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import Footer from "../components/common/Footer";
 
+
 export const metadata: Metadata = {
   title: "Prepaid Metering System BPDB",
   description: "Prepaid Metering System BPDB",

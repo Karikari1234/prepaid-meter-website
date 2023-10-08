@@ -3,7 +3,7 @@ import Image from "next/legacy/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-green text-white w-full">
+    <footer className="bg-green text-white w-full mt-16">
       <div className="px-2 py-6 md:py-12  md:w-5/6 md:mx-auto md:p-0">
         <div className="md:grid md:grid-cols-footer  gap-x-8 md:mb-8">
           <div className="flex items-center mb-4 md:col-span-1 md:flex-col md:items-start md:min-w-[5rem]">
