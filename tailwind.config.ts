@@ -11,9 +11,11 @@ const config: Config = {
       colors: {
         green: "#00513D",
         "green-light": "#00CC99",
+        "green-deep": "#01382a",
       },
       gridTemplateColumns: {
         footer: "300px repeat(4,1fr)",
+        hero: "1fr minmax(400px,1fr)",
       },
     },
   },
