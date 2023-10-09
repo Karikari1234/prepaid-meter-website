@@ -14,13 +14,11 @@ const config: Config = {
         "green-deep": "#01382a",
       },
       gridTemplateColumns: {
-        footer: "300px repeat(4,1fr)",
+        footer: "400px repeat(4,1fr)",
         hero: "1fr minmax(400px,1fr)",
       },
     },
   },
-  plugins: [
-    require('tailwindcss-animated')
-  ],
+  plugins: [require("tailwindcss-animated")],
 };
 export default config;

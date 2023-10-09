@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <footer className="bg-green text-white w-full mt-16">
       <div className="px-2 py-6 md:py-12  md:w-5/6 md:mx-auto md:p-0">
-        <div className="md:grid md:grid-cols-footer  gap-x-8 md:mb-8">
-          <div className="flex items-center mb-4 md:col-span-1 md:flex-col md:items-start md:min-w-[5rem]">
+        <div className="md:grid md:grid-cols-footer md:mb-8">
+          <div className="flex items-center mb-4 md:col-span-1 md:flex-col md:items-start md:min-w-[5rem] md:max-w-[250px]">
             <Link
               className="block w-16 h-16 md:w-24 md:h-24 mr-3 md:mb-4"
               href="/"
@@ -22,15 +22,15 @@ const Footer = () => {
             <div className="text-semibold text-lg md:hidden">
               Prepaid Metering System
             </div>
-            <div className="hidden text-sm font-light md:block md:leading-8">
+            <div className="hidden text-sm font-light md:block md:leading-7">
               Prepaid Metering System has been a revolution for improving the
               power sector in Bangladesh. BPDB, with its aim to empower people
               with quality electricity, aims for 100% prepaid metering in near
               future.
             </div>
           </div>
-          <div className="grid grid-cols-2 grid-row-3 gap-4 justify-between mb-4 md:mb-0 md:grid-cols-4 md:col-span-4 md:gap-x-4 md:mt-2 md:justify-end">
-            <div>
+          <div className="grid grid-cols-2 grid-row-3 gap-4 justify-between mb-4 md:gap-0 md:mb-0 md:grid-cols-4 md:col-span-4 md:gap-x-0 md:mt-2 md:justify-end">
+            <div className="">
               <div className="font-semibold mb-1 md:mb-8">Meter Manual</div>
               <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
