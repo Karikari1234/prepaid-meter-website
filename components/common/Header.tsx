@@ -48,7 +48,16 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="md:flex md:justify-center bg-green-light md:h-12"></div>
+      <div className="md:flex md:justify-center bg-green-light md:h-12 md:items-center">
+        <ul className="md:flex md:justify-between md:space-x-8 md:text-white md:font-semibold">
+          <li>
+            <Link href="/bill-calculator">Calculate Meter Bill</Link>
+          </li>
+          <li>
+            <Link href="/">About</Link>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 };
