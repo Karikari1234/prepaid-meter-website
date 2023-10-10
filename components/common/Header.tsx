@@ -15,7 +15,7 @@ const Header = () => {
               height={100}
             ></Image>
           </Link>
-          <div className="font-bold md:text-xl">
+          <div className="font-bold md:text-3xl md:whitespace-nowrap">
             Prepaid Metering System BPDB
           </div>
         </div>
@@ -31,7 +31,7 @@ const Header = () => {
               <div>16200</div>
             </div>
           </div>
-          <div>
+          <div className="md:mt-2">
             <Image
               src="/facebook-icon.svg"
               width={45}
