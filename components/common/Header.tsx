@@ -1,10 +1,12 @@
 import Image from "next/legacy/image";
 import Link from "next/link";
+import { CustomMenubar } from "./menubar";
+import { CustomNavigationMenu } from "./navigationmenubar";
 
 const Header = () => {
   return (
     <header className="hidden md:block md:w-5/6 md:mx-auto md:py-6">
-      <div className="md:flex md:flex-row md:justify-between">
+      <div className="md:flex md:flex-row md:justify-between md:py-4">
         <div className="md:flex md:items-center">
           <Link className="block w-16 h-16 md:w-16 md:h-16 mr-3" href="/">
             <Image
@@ -46,7 +48,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div></div>
+      <div className="md:flex md:justify-center bg-green-light md:h-12"></div>
     </header>
   );
 };
