@@ -1,5 +1,11 @@
+import { ProfileForm } from "@/components/BillCalculator";
+
 const BillCalculator = () => {
-  return <div>Enter</div>;
+  return (
+    <div>
+      <ProfileForm />
+    </div>
+  );
 };
 
 export default BillCalculator;
