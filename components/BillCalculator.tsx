@@ -46,7 +46,7 @@ interface MeterCharges {
 const defaultMeterCharges: MeterCharges = {
   vat: 0.0,
   demandCharge: 0.0,
-  meterRent: 40.0,
+  meterRent: 0.0,
   totalCharge: 0.0,
   rebate: 0.0,
   totalEnergy: 0.0,
@@ -57,7 +57,7 @@ export function EnergyCalculatorForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       rechargeAmount: 0.0,
-      sanctionLoad: 1,
+      sanctionLoad: 0,
       firstTime: "yes",
     },
   });
@@ -89,7 +89,7 @@ export function EnergyCalculatorForm() {
     setResult(defaultMeterCharges);
     form.reset({
       rechargeAmount: 0,
-      sanctionLoad: 1,
+      sanctionLoad: 0,
       firstTime: "yes",
     });
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -151,7 +151,7 @@ export function EnergyCalculatorForm() {
               <FormControl>
                 <Input
                   type="number"
-                  placeholder="0"
+                  placeholder="1"
                   {...form.register("sanctionLoad", { valueAsNumber: true })}
                 />
               </FormControl>
