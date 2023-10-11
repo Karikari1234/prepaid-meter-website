@@ -18,7 +18,7 @@ import { useForm } from "react-hook-form";
 import { RadioGroup } from "@/components/ui/radio-group";
 import { RadioGroupItem } from "@/components/ui/radio-group";
 import { Source_Code_Pro } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
@@ -80,8 +80,9 @@ export function EnergyCalculatorForm() {
       rebate: rebate.toFixed(2) as unknown as number,
       totalEnergy: totalEnergy.toFixed(2) as unknown as number,
     };
-    console.log(res);
+    //console.log(res);
     setResult(res);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
 
   function onReset() {
@@ -91,7 +92,12 @@ export function EnergyCalculatorForm() {
       sanctionLoad: 1,
       firstTime: "yes",
     });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   const [result, setResult] = useState(defaultMeterCharges);
 
