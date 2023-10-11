@@ -55,11 +55,6 @@ const defaultMeterCharges: MeterCharges = {
 export function EnergyCalculatorForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      rechargeAmount: 0.0,
-      sanctionLoad: 0,
-      firstTime: "yes",
-    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -87,12 +82,9 @@ export function EnergyCalculatorForm() {
 
   function onReset() {
     setResult(defaultMeterCharges);
-    form.reset({
-      rechargeAmount: 0,
-      sanctionLoad: 0,
-      firstTime: "yes",
-    });
+    form.reset();
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    //document.body.style.zoom
   }
 
   useEffect(() => {
