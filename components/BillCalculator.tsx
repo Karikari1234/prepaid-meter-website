@@ -20,6 +20,9 @@ const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
+  rechargeAmount: z.number().min(0, {
+    message: "Input Greater Number Please.",
+  }),
 });
 
 export function ProfileForm() {
@@ -27,6 +30,7 @@ export function ProfileForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
+      rechargeAmount: 0,
     },
   });
 
@@ -47,11 +51,23 @@ export function ProfileForm() {
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="Username" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              <FormDescription>Provide Username.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="rechargeAmount"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Recharge Amount</FormLabel>
+              <FormControl>
+                <Input placeholder="Recharge Amount" {...field} />
+              </FormControl>
+              <FormDescription>Provide Recharge Amount.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
