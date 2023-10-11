@@ -17,6 +17,10 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { RadioGroup } from "@/components/ui/radio-group";
 import { RadioGroupItem } from "@/components/ui/radio-group";
+import { Source_Code_Pro } from "next/font/google";
+import { useState } from "react";
+
+const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 const formSchema = z.object({
   rechargeAmount: z.number().min(0, {
@@ -30,28 +34,86 @@ const formSchema = z.object({
   }),
 });
 
-export function ProfileForm() {
+interface MeterCharges {
+  vat: number;
+  demandCharge: number;
+  meterRent: number;
+  totalCharge: number;
+  rebate: number;
+  totalEnergy: number;
+}
+
+const defaultMeterCharges: MeterCharges = {
+  vat: 0,
+  demandCharge: 0,
+  meterRent: 40,
+  totalCharge: 0,
+  rebate: 0,
+  totalEnergy: 0,
+};
+
+export function EnergyCalculatorForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       rechargeAmount: 0,
-      sanctionLoad: 0,
+      sanctionLoad: 1,
       firstTime: "yes",
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    const x = values;
-    console.log(x);
+    const vat: number = (values.rechargeAmount * 5) / 105;
+    const demandCharge: number =
+      values.firstTime == "yes" ? values.sanctionLoad * 35 : 0.0;
+    const meterRent: number = values.firstTime == "yes" ? 40.0 : 0.0;
+    const totalCharge: number = vat + demandCharge + meterRent;
+    const rebate: number =
+      (1 / 101) * (values.rechargeAmount - vat - meterRent);
+    const totalEnergy: number = values.rechargeAmount - totalCharge + rebate;
+    let res: MeterCharges = {
+      ...defaultMeterCharges,
+      vat: vat,
+      demandCharge: demandCharge / 1.0,
+      meterRent: meterRent / 1.0,
+      totalCharge: totalCharge / 1.0,
+      rebate: rebate / 1.0,
+      totalEnergy: totalEnergy / 1.0,
+    };
+    console.log(res);
+    setResult(res);
   }
+
+  function onReset() {
+    setResult(defaultMeterCharges);
+    form.reset({
+      rechargeAmount: 0,
+      sanctionLoad: 1,
+      firstTime: "yes",
+    });
+  }
+
+  const [result, setResult] = useState(defaultMeterCharges);
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <h1 className="text-xl font-bold">Prepaid Meter Energy Calculator</h1>
+        <div
+          className={`${sourceCodePro.className} bg-slate-400 text-sm p-2 rounded-sm`}
+        >
+          <div>
+            <div>VAT(5%): {result.vat} BDT</div>
+            <div>Demand Charge: {result.demandCharge} BDT</div>
+            <div>Meter Rent(5%): {result.meterRent} BDT</div>
+            <div>Total Charge: {result.totalCharge} BDT</div>
+            <div>Rebate: -{result.rebate} BDT</div>
+            <div>
+              <span className="font-semibold">Total Energy Amount:</span>{" "}
+              {result.totalEnergy} BDT
+            </div>
+          </div>
+        </div>
         <FormField
           control={form.control}
           name="rechargeAmount"
@@ -70,12 +132,13 @@ export function ProfileForm() {
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="sanctionLoad"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Meter Sanction Load</FormLabel>
+              <FormLabel>Meter Sanction Load (in kWh)</FormLabel>
               <FormControl>
                 <Input
                   type="number"
@@ -88,6 +151,7 @@ export function ProfileForm() {
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="firstTime"
@@ -118,9 +182,19 @@ export function ProfileForm() {
             </FormItem>
           )}
         />
-        <Button className="bg-green" type="submit">
-          Submit
-        </Button>
+
+        <div className="space-x-4">
+          <Button className="bg-green" type="submit">
+            Submit
+          </Button>
+          <Button
+            type="reset"
+            className="bg-slate-200 hover:bg-slate-300 text-black"
+            onClick={onReset}
+          >
+            Reset
+          </Button>
+        </div>
       </form>
     </Form>
   );
