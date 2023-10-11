@@ -27,7 +27,7 @@ const Header = () => {
               <Image
                 src="/phone-icon.svg"
                 width={50}
-                height={50}
+                height={48}
                 alt="phone icon"
               />
               <div>16200</div>

@@ -16,7 +16,7 @@ const Footer = () => {
                 alt="BPDB logo"
                 layout="responsive"
                 width={100}
-                height={100}
+                height={96}
               ></Image>
             </Link>
             <div className="text-semibold text-lg md:hidden">
