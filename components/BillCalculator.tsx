@@ -44,19 +44,19 @@ interface MeterCharges {
 }
 
 const defaultMeterCharges: MeterCharges = {
-  vat: 0,
-  demandCharge: 0,
-  meterRent: 40,
-  totalCharge: 0,
-  rebate: 0,
-  totalEnergy: 0,
+  vat: 0.0,
+  demandCharge: 0.0,
+  meterRent: 40.0,
+  totalCharge: 0.0,
+  rebate: 0.0,
+  totalEnergy: 0.0,
 };
 
 export function EnergyCalculatorForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      rechargeAmount: 0,
+      rechargeAmount: 0.0,
       sanctionLoad: 1,
       firstTime: "yes",
     },
@@ -73,12 +73,12 @@ export function EnergyCalculatorForm() {
     const totalEnergy: number = values.rechargeAmount - totalCharge + rebate;
     let res: MeterCharges = {
       ...defaultMeterCharges,
-      vat: vat,
-      demandCharge: demandCharge / 1.0,
-      meterRent: meterRent / 1.0,
-      totalCharge: totalCharge / 1.0,
-      rebate: rebate / 1.0,
-      totalEnergy: totalEnergy / 1.0,
+      vat: vat.toFixed(2) as unknown as number,
+      demandCharge: demandCharge.toFixed(2) as unknown as number,
+      meterRent: meterRent.toFixed(2) as unknown as number,
+      totalCharge: totalCharge.toFixed(2) as unknown as number,
+      rebate: rebate.toFixed(2) as unknown as number,
+      totalEnergy: totalEnergy.toFixed(2) as unknown as number,
     };
     console.log(res);
     setResult(res);
@@ -104,11 +104,14 @@ export function EnergyCalculatorForm() {
         >
           <div>
             <div>VAT(5%): {result.vat} BDT</div>
-            <div>Demand Charge: {result.demandCharge} BDT</div>
-            <div>Meter Rent(5%): {result.meterRent} BDT</div>
-            <div>Total Charge: {result.totalCharge} BDT</div>
-            <div>Rebate: -{result.rebate} BDT</div>
             <div>
+              Demand Charge (Sanction Load*35/kWh Monthly):{" "}
+              {result.demandCharge} BDT
+            </div>
+            <div>Meter Rent (Monthly): {result.meterRent} BDT</div>
+            <div>Total Charge: {result.totalCharge} BDT</div>
+            <div>Rebate(1%): -{result.rebate} BDT</div>
+            <div className="font-semibold">
               <span className="font-semibold">Total Energy Amount:</span>{" "}
               {result.totalEnergy} BDT
             </div>
@@ -127,7 +130,7 @@ export function EnergyCalculatorForm() {
                   {...form.register("rechargeAmount", { valueAsNumber: true })}
                 />
               </FormControl>
-              <FormDescription>Provide Amount Recharged.</FormDescription>
+              <FormDescription>Provide Amount To Be Recharged.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -157,7 +160,9 @@ export function EnergyCalculatorForm() {
           name="firstTime"
           render={({ field }) => (
             <FormItem className="space-y-3">
-              <FormLabel>Is it your first time recharging the meter?</FormLabel>
+              <FormLabel>
+                Is it your first time meter recharge this month?
+              </FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
