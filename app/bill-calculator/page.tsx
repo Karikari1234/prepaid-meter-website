@@ -2,12 +2,13 @@ import { EnergyCalculatorForm } from "@/components/BillCalculator";
 
 const BillCalculator = () => {
   return (
-    <div className="max-w-md mx-auto">
-      <div className="border border-gray-200 rounded p-8 shadow-lg mb-4">
+    <div className="mx-auto max-w-md">
+      <div className="mb-4 rounded border border-gray-200 p-8 shadow-lg">
         <EnergyCalculatorForm />
       </div>
       <div className="text-sm">
-        <span className="text-red-500">**</span>LT-A Tariff Customer rates only.
+        <span className="text-red-500">**</span>LT-A Tariff Customer(Single
+        Phase Meter) rates only.
       </div>
     </div>
   );

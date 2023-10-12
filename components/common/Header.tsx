@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { CustomMenubar } from "./menubar";
@@ -5,10 +7,10 @@ import { CustomNavigationMenu } from "./navigationmenubar";
 
 const Header = () => {
   return (
-    <header className="hidden md:block md:w-5/6 md:mx-auto md:py-6">
+    <header className="hidden md:mx-auto md:mb-8 md:block md:w-5/6 md:py-6">
       <div className="md:flex md:flex-row md:justify-between md:py-4">
         <div className="md:flex md:items-center">
-          <Link className="block w-16 h-16 md:w-16 md:h-16 mr-3" href="/">
+          <Link className="mr-3 block h-16 w-16 md:h-16 md:w-16" href="/">
             <Image
               src="/site-logo.png"
               alt="BPDB logo"
@@ -17,12 +19,12 @@ const Header = () => {
               height={100}
             ></Image>
           </Link>
-          <div className="font-bold md:text-3xl md:whitespace-nowrap">
+          <div className="font-bold md:whitespace-nowrap md:text-3xl">
             Prepaid Metering System BPDB
           </div>
         </div>
-        <div className="md:flex md:flex-row md:space-x-4 md:basis-48 md:items-center">
-          <div className="md:flex md:space-x-4 md:items-center">
+        <div className="md:flex md:basis-48 md:flex-row md:items-center md:space-x-4">
+          <div className="md:flex md:items-center md:space-x-4">
             <div className="md:flex md:items-center">
               <Image
                 src="/phone-icon.svg"
@@ -42,19 +44,19 @@ const Header = () => {
             ></Image>
           </div>
           <div>
-            <button className="bg-transparent hover:bg-green text-green hover:text-white py-2 px-4 border border-green hover:border-transparent rounded">
+            <button className="rounded border border-green bg-transparent px-4 py-2 text-green hover:border-transparent hover:bg-green hover:text-white">
               বাংলা
             </button>
           </div>
         </div>
       </div>
-      <div className="md:flex md:justify-center bg-green-light md:h-12 md:items-center">
-        <ul className="md:flex md:justify-between md:space-x-8 md:text-white md:font-semibold">
-          <li>
+      <div className="bg-green-light md:flex md:items-center md:justify-center">
+        <ul className="md:flex md:justify-between md:font-semibold md:text-white">
+          <li className="p-2 text-center hover:bg-white hover:text-green-light">
             <Link href="/bill-calculator">Calculate Meter Bill</Link>
           </li>
-          <li>
-            <Link href="/">About</Link>
+          <li className="p-2 text-center hover:bg-white hover:text-green-light">
+            <Link href="/about">About</Link>
           </li>
         </ul>
       </div>

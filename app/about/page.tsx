@@ -1,11 +1,15 @@
-import AboutComponent from '../../components/About';
+"use client";
+
+import CustomerStats from "@/components/CustomerStats";
+import AboutComponent from "../../components/About";
 
 const About = () => {
   return (
-    <div>
+    <div className="space-y-8">
       <AboutComponent />
+      <CustomerStats />
     </div>
   );
-}
+};
 
 export default About;
