@@ -24,11 +24,12 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} relative`}>
         <Header />
-        <ResponsiveNavbar />
+        {/* <ResponsiveNavbar /> */}
         <main className="w-full px-1 md:mx-auto md:w-5/6 md:p-0 ">
           {children}
         </main>
         <Footer />
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
       </body>
     </html>
   );
