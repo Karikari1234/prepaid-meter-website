@@ -23,8 +23,8 @@ import { useEffect, useState } from "react";
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 const formSchema = z.object({
-  rechargeAmount: z.number().min(0, {
-    message: "Username must be at least 2 characters.",
+  rechargeAmount: z.number().min(200, {
+    message: "Minimum 200 BDT needs to be recharged",
   }),
   sanctionLoad: z.number().min(0, {
     message: "Input Greater Number Please.",
@@ -98,7 +98,7 @@ export function EnergyCalculatorForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <h1 className="text-xl font-bold">Prepaid Meter Energy Calculator</h1>
         <div
-          className={`${sourceCodePro.className} bg-slate-400 text-sm p-2 rounded-sm`}
+          className={`${sourceCodePro.className} rounded-sm bg-slate-400 p-2 text-sm`}
         >
           <div>
             <div>VAT(5%): {result.vat} BDT</div>
@@ -192,7 +192,7 @@ export function EnergyCalculatorForm() {
           </Button>
           <Button
             type="reset"
-            className="bg-slate-200 hover:bg-slate-300 text-black"
+            className="bg-slate-200 text-black hover:bg-slate-300"
             onClick={onReset}
           >
             Reset
