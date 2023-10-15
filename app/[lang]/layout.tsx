@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({ weight: ["400", "700"], subsets: ["latin"] });
-import Footer from "../components/common/Footer";
+import Footer from "../../components/common/Footer";
 import Header from "@/components/common/Header";
 import ResponsiveNavbar from "@/components/common/navigation/responsive-navbar";
 
