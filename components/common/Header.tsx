@@ -1,9 +1,22 @@
+"use client";
+
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { CustomMenubar } from "./menubar";
 import { CustomNavigationMenu } from "./navigationmenubar";
+import { useTranslations, useLocale } from "next-intl";
+import { usePathname, useRouter } from "next-intl/client";
 
 const Header = () => {
+  const mlocale = useLocale();
+  const t = useTranslations("Index");
+  const router = useRouter();
+  const pathname = usePathname();
+  const changeLocale = () => {
+    mlocale == "en"
+      ? router.push(pathname, { locale: "bn" })
+      : router.push(pathname, { locale: "en" });
+  };
   return (
     <header className="hidden md:block md:w-5/6 md:mx-auto md:py-6">
       <div className="md:flex md:flex-row md:justify-between md:py-4">
@@ -18,7 +31,7 @@ const Header = () => {
             ></Image>
           </Link>
           <div className="font-bold md:text-3xl md:whitespace-nowrap">
-            Prepaid Metering System BPDB
+            {t("title")}
           </div>
         </div>
         <div className="md:flex md:flex-row md:space-x-4 md:basis-48 md:items-center">
@@ -42,8 +55,11 @@ const Header = () => {
             ></Image>
           </div>
           <div>
-            <button className="bg-transparent hover:bg-green text-green hover:text-white py-2 px-4 border border-green hover:border-transparent rounded">
-              বাংলা
+            <button
+              className="bg-transparent hover:bg-green text-green hover:text-white py-2 px-4 border border-green hover:border-transparent rounded"
+              onClick={changeLocale}
+            >
+              {t("lang")}
             </button>
           </div>
         </div>
@@ -54,7 +70,7 @@ const Header = () => {
             <Link href="/bill-calculator">Calculate Meter Bill</Link>
           </li>
           <li>
-            <Link href="/">About</Link>
+            <Link href="/about">About</Link>
           </li>
         </ul>
       </div>
