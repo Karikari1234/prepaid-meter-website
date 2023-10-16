@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import Footer from "../components/common/Footer";
 import Header from "@/components/common/Header";
-import ResponsiveNavbar from "@/components/common/navigation/responsive-navbar";
 
 export const metadata: Metadata = {
   title: "Prepaid Metering System BPDB",
