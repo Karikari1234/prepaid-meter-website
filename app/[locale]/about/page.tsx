@@ -1,5 +1,3 @@
-"use client";
-
 import CustomerStats from "@/components/CustomerStats";
 import AboutComponent from "../../../components/About";
 
