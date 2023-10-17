@@ -2,10 +2,19 @@
 
 import Image from "next/legacy/image";
 import Link from "next/link";
-import { CustomMenubar } from "./menubar";
-import { CustomNavigationMenu } from "./navigationmenubar";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next-intl/client";
 
 const Header = () => {
+  const mlocale = useLocale();
+  const t = useTranslations("Header");
+  const router = useRouter();
+  const pathname = usePathname();
+  const changeLocale = () => {
+    mlocale == "en"
+      ? router.push(pathname, { locale: "bn" })
+      : router.push(pathname, { locale: "en" });
+  };
   return (
     <header className="hidden md:mx-auto md:mb-8 md:block md:w-5/6 md:py-6">
       <div className="md:flex md:flex-row md:justify-between md:py-4">
@@ -20,37 +29,41 @@ const Header = () => {
             ></Image>
           </Link>
           <div className="font-bold md:whitespace-nowrap md:text-3xl">
-            Prepaid Metering System BPDB
+            {t("title")}
           </div>
         </div>
         <div className="md:flex md:basis-48 md:flex-row md:items-center md:space-x-4">
           <div className="md:flex md:items-center md:space-x-4">
-            <div className="md:flex md:items-center">
+            <div className="md:flex md:min-w-max md:items-center">
               <Image
                 src="/phone-icon.svg"
-                width={50}
-                height={48}
+                width={20}
+                height={18}
                 alt="phone icon"
               />
-              <div>16200</div>
+              <div>{t("phone_number")}</div>
             </div>
           </div>
           <div className="md:mt-2">
             <a
               href="https://www.facebook.com/groups/3715263025180679"
               target="_blank"
+              className="md:flex md:min-w-max md:items-center"
             >
               <Image
                 src="/facebook-icon.svg"
-                width={45}
-                height={45}
+                width={35}
+                height={35}
                 alt="facebook icon"
               ></Image>
             </a>
           </div>
           <div>
-            <button className="rounded border border-green bg-transparent px-4 py-2 text-green hover:border-transparent hover:bg-green hover:text-white">
-              বাংলা
+            <button
+              onClick={changeLocale}
+              className="rounded border border-green bg-transparent px-4 py-2 text-green hover:border-transparent hover:bg-green hover:text-white"
+            >
+              {t("lang")}
             </button>
           </div>
         </div>
