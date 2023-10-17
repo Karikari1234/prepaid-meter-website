@@ -89,7 +89,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a className="text-sm font-light" href="path">
+                  <a className="text-sm font-light" href="/meter-short-codes">
                     Meter Short Codes
                   </a>
                 </li>
