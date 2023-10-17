@@ -6,7 +6,7 @@ const poppins = Poppins({ weight: "700", subsets: ["latin"] });
 
 const HeroSection = () => {
   return (
-    <div className="lg:grid lg:gap-4 lg:grid-cols-hero lg:items-center">
+    <div className="lg:grid lg:grid-cols-hero lg:items-center lg:gap-4">
       <div className="lg:order-last">
         <Image
           className=""
@@ -19,24 +19,27 @@ const HeroSection = () => {
       </div>
       <div className="">
         <h1
-          className={`${poppins.className} font-bold  text-4xl text-center leading-normal mb-5 md:text-6xl md:text-left md:leading-tight animate-fade-up animate-once`}
+          className={`${poppins.className} mb-5  animate-fade-up text-center text-4xl font-bold leading-normal animate-once md:text-left md:text-6xl md:leading-tight`}
         >
           Welcome to <span className="whitespace-nowrap">Prepaid Metering</span>{" "}
           System BPDB
         </h1>
-        <p className="text-center leading-normal text-xl mb-5 md:text-left animate-fade-up animate-once">
+        <p className="mb-5 animate-fade-up text-center text-xl leading-normal animate-once md:text-left">
           The smart and convenient way to pay for your electricity. With prepaid
           metering, you can monitor your energy consumption, and recharge your
           balance easily.
         </p>
-        <div className="flex gap-1 justify-center md:justify-normal md:gap-6">
-          <Link href="/">
-            <button className="bg-green border border-green hover:border-transparent hover:bg-green-deep text-white py-2 px-4 rounded shadow-2xl">
+        <div className="flex justify-center gap-1 md:justify-normal md:gap-6">
+          <Link
+            href="/bill-calculator
+          "
+          >
+            <button className="rounded border border-green bg-green px-4 py-2 text-white shadow-2xl hover:border-transparent hover:bg-green-deep">
               Meter Charges
             </button>
           </Link>
-          <Link href="/path">
-            <button className="bg-transparent hover:bg-green text-green hover:text-white py-2 px-4 border border-green hover:border-transparent rounded">
+          <Link href="/meter-short-codes">
+            <button className="rounded border border-green bg-transparent px-4 py-2 text-green hover:border-transparent hover:bg-green hover:text-white">
               Meter Short Codes
             </button>
           </Link>

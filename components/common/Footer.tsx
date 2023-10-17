@@ -3,12 +3,12 @@ import Image from "next/legacy/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-green text-white w-full mt-16">
-      <div className="px-2 py-6 md:py-12  md:w-5/6 md:mx-auto md:p-0">
-        <div className="md:grid md:grid-cols-footer md:mb-8">
-          <div className="flex items-center mb-4 md:col-span-1 md:flex-col md:items-start md:min-w-[5rem] md:max-w-[250px]">
+    <footer className="mt-16 w-full bg-green text-white">
+      <div className="px-2 py-6 md:mx-auto  md:w-5/6 md:p-0 md:py-12">
+        <div className="md:mb-8 md:grid md:grid-cols-footer">
+          <div className="mb-4 flex items-center md:col-span-1 md:min-w-[5rem] md:max-w-[250px] md:flex-col md:items-start">
             <Link
-              className="block w-16 h-16 md:w-24 md:h-24 mr-3 md:mb-4"
+              className="mr-3 block h-16 w-16 md:mb-4 md:h-24 md:w-24"
               href="/"
             >
               <Image
@@ -29,68 +29,88 @@ const Footer = () => {
               future.
             </div>
           </div>
-          <div className="grid grid-cols-2 grid-row-3 gap-4 justify-between mb-4 md:gap-0 md:mb-0 md:grid-cols-4 md:col-span-4 md:gap-x-0 md:mt-2 md:justify-end">
+          <div className="grid-row-3 mb-4 grid grid-cols-2 justify-between gap-4 md:col-span-4 md:mb-0 md:mt-2 md:grid-cols-4 md:justify-end md:gap-0 md:gap-x-0">
             <div className="">
-              <div className="font-semibold mb-1 md:mb-8">Meter Manual</div>
+              <div className="mb-1 font-semibold md:mb-8">Meter Manual</div>
               <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <a
+                    href="https://bpdb.portal.gov.bd/sites/default/files/files/bpdb.portal.gov.bd/page/8d4c02c3_c22c_479d_a287_f3f895d22929/2021-09-20-14-12-3435ce9c9d1d389f5e74b70ce4a7a4fc.pdf"
+                    target="_blank"
+                    className="text-sm font-light"
+                  >
                     Hexing Meter Manual
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <a
+                    href="https://bpdb.portal.gov.bd/sites/default/files/files/bpdb.portal.gov.bd/page/8d4c02c3_c22c_479d_a287_f3f895d22929/2021-09-20-14-13-8667f356d9c504ccac9aabf6f20b505e.pdf"
+                    target="_blank"
+                    className="text-sm font-light"
+                  >
                     Inhe Meter Manual
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <a
+                    target="_blank"
+                    className="text-sm font-light"
+                    href="https://bpdb.portal.gov.bd/sites/default/files/files/bpdb.portal.gov.bd/page/8d4c02c3_c22c_479d_a287_f3f895d22929/2021-09-20-14-14-b72bdbea5951d8d2704de5028cecd48e.pdf"
+                  >
                     Liyong Meter Manual
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <a
+                    target="_blank"
+                    className="text-sm font-light"
+                    href="https://bpdb.portal.gov.bd/sites/default/files/files/bpdb.portal.gov.bd/page/8d4c02c3_c22c_479d_a287_f3f895d22929/2021-09-20-14-15-d3e0e6a95820ca5ca971ea6804ed1a21.pdf"
+                  >
                     Eastern Meter Manual
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
             <div>
-              <div className="font-semibold mb-1 md:mb-8">Quicklinks</div>
+              <div className="mb-1 font-semibold md:mb-8">Quicklinks</div>
               <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <a
+                    target="_blank"
+                    className="text-sm font-light"
+                    href="https://bpdb.portal.gov.bd/sites/default/files/files/bpdb.portal.gov.bd/page/8d4c02c3_c22c_479d_a287_f3f895d22929/2021-09-20-14-11-2d19fa954612b51b3d33dd4b0517f30f.pdf"
+                  >
                     System Operations Manual
+                  </a>
+                </li>
+                <li>
+                  <Link className="text-sm font-light" href="/bill-calculator">
+                    Meter Charge Calculator
                   </Link>
                 </li>
                 <li>
-                  <Link className="font-light text-sm" href="path">
-                    Meter Charges
-                  </Link>
-                </li>
-                <li>
-                  <Link className="font-light text-sm" href="path">
+                  <a className="text-sm font-light" href="path">
                     Meter Short Codes
-                  </Link>
+                  </a>
                 </li>
                 <li></li>
               </ul>
             </div>
             <div>
-              <div className="font-semibold mb-1 md:mb-8">About</div>
+              <div className="mb-1 font-semibold md:mb-8">About</div>
               <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <Link className="text-sm font-light" href="/about">
                     Why Prepaid
                   </Link>
                 </li>
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <Link className="text-sm font-light" href="path">
                     New Updates
                   </Link>
                 </li>
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <Link className="text-sm font-light" href="path">
                     Contact Us
                   </Link>
                 </li>
@@ -98,17 +118,21 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <div className="font-semibold mb-1 md:mb-8">Help</div>
+              <div className="mb-1 font-semibold md:mb-8">Help</div>
               <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <Link className="text-sm font-light" href="path">
                     FAQ
                   </Link>
                 </li>
                 <li>
-                  <Link className="font-light text-sm" href="path">
+                  <a
+                    className="text-sm font-light"
+                    href="https://www.facebook.com/groups/3715263025180679"
+                    target="_blank"
+                  >
                     Facebook Group
-                  </Link>
+                  </a>
                 </li>
                 <li></li>
                 <li></li>

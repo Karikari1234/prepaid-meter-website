@@ -36,12 +36,17 @@ const Header = () => {
             </div>
           </div>
           <div className="md:mt-2">
-            <Image
-              src="/facebook-icon.svg"
-              width={45}
-              height={45}
-              alt="facebook icon"
-            ></Image>
+            <a
+              href="https://www.facebook.com/groups/3715263025180679"
+              target="_blank"
+            >
+              <Image
+                src="/facebook-icon.svg"
+                width={45}
+                height={45}
+                alt="facebook icon"
+              ></Image>
+            </a>
           </div>
           <div>
             <button className="rounded border border-green bg-transparent px-4 py-2 text-green hover:border-transparent hover:bg-green hover:text-white">
