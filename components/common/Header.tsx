@@ -71,12 +71,15 @@ const Header = () => {
       <div className="bg-green-light md:flex md:items-center md:justify-center">
         <ul className="md:flex md:justify-between md:font-semibold md:text-white">
           <li className="p-2 text-center hover:bg-white hover:text-green-light">
+            <Link href="/">Home</Link>
+          </li>
+          <li className="p-2 text-center hover:bg-white hover:text-green-light">
             <a target="_blank" href="http://180.211.137.8/">
               BPDB Issue Tracking
             </a>
           </li>
           <li className="p-2 text-center hover:bg-white hover:text-green-light">
-            <Link href="/bill-calculator">Calculate Meter Bill</Link>
+            <Link href="/bill-calculator">Calculate Meter Changes</Link>
           </li>
           <li className="p-2 text-center hover:bg-white hover:text-green-light">
             <Link href="/about">About</Link>

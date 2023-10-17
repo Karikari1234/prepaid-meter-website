@@ -6,8 +6,11 @@ const CustomerStats = () => {
   return (
     <div className="text-lg md:space-y-8">
       <h1 className="heading-text mb-4 !text-left !text-5xl">
-        BPDB at a glance
+        Prepaid Metering BPDB at a glance
       </h1>
+      <div className="h-96">
+        <CustomerChart></CustomerChart>
+      </div>
       <p>
         The Bangladesh Power Development Board (BPDB) has achieved a significant
         milestone in its prepaid meter installation drive, with the total number
@@ -23,9 +26,6 @@ const CustomerStats = () => {
         The month-wise data for new prepaid meter customers in 2022-23 is as
         follows:
       </p>
-      <div className="h-96">
-        <CustomerChart></CustomerChart>
-      </div>
     </div>
   );
 };

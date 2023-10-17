@@ -121,7 +121,7 @@ const Footer = () => {
               <div className="mb-1 font-semibold md:mb-8">Help</div>
               <ul className="flex flex-col space-y-2 md:space-y-4">
                 <li>
-                  <Link className="text-sm font-light" href="path">
+                  <Link className="text-sm font-light" href="/faq">
                     FAQ
                   </Link>
                 </li>

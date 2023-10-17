@@ -108,7 +108,7 @@ const CustomerChart = () => {
           dataKey="newCustomerNo"
           stroke="#00513D"
           activeDot={{ r: 8 }}
-          name="New Customer Connection Number"
+          name="Number of new customer connections per month"
         />
       </LineChart>
     </ResponsiveContainer>

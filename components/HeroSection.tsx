@@ -9,6 +9,7 @@ const HeroSection = () => {
     <div className="lg:grid lg:grid-cols-hero lg:items-center lg:gap-4">
       <div className="lg:order-last">
         <Image
+          priority
           className=""
           src="/hero-image.png"
           alt="BPDB logo"

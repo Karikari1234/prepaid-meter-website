@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-
+import { toast, useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -19,17 +19,26 @@ import { RadioGroup } from "@/components/ui/radio-group";
 import { RadioGroupItem } from "@/components/ui/radio-group";
 import { Source_Code_Pro } from "next/font/google";
 import { useEffect, useState } from "react";
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 const formSchema = z.object({
   rechargeAmount: z.number().min(200, {
     message: "Minimum 200 BDT needs to be recharged",
   }),
-  sanctionLoad: z.number().min(0, {
-    message: "Input Greater Number Please.",
+  sanctionLoad: z.number().min(2, {
+    message: "Sanction load can't be less than 2kWh.",
   }),
   firstTime: z.enum(["yes", "no"], {
+    required_error: "You need to select one option.",
+  }),
+  ownedBy: z.enum(["bpdb", "customer"], {
     required_error: "You need to select one option.",
   }),
 });
@@ -41,6 +50,8 @@ interface MeterCharges {
   totalCharge: number;
   rebate: number;
   totalEnergy: number;
+  ownedBy?: string;
+  firstTime?: string;
 }
 
 const defaultMeterCharges: MeterCharges = {
@@ -50,23 +61,27 @@ const defaultMeterCharges: MeterCharges = {
   totalCharge: 0.0,
   rebate: 0.0,
   totalEnergy: 0.0,
+  ownedBy: "",
+  firstTime: "",
 };
 
 export function EnergyCalculatorForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
+  //const toast = useToast();
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     const vat: number = (values.rechargeAmount * 5) / 105;
     const demandCharge: number =
       values.firstTime == "yes" ? values.sanctionLoad * 35 : 0.0;
-    const meterRent: number = values.firstTime == "yes" ? 40.0 : 0.0;
+    const meterRent: number =
+      values.ownedBy == "bpdb" && values.firstTime == "yes" ? 40.0 : 0.0;
     const totalCharge: number = vat + demandCharge + meterRent;
     const rebate: number =
       (1 / 101) * (values.rechargeAmount - vat - meterRent);
     const totalEnergy: number = values.rechargeAmount - totalCharge + rebate;
-    let res: MeterCharges = {
+    let result: MeterCharges = {
       ...defaultMeterCharges,
       vat: vat.toFixed(2) as unknown as number,
       demandCharge: demandCharge.toFixed(2) as unknown as number,
@@ -76,7 +91,31 @@ export function EnergyCalculatorForm() {
       totalEnergy: totalEnergy.toFixed(2) as unknown as number,
     };
     //console.log(res);
-    setResult(res);
+    toast({
+      title: "Your Meter Charges: ",
+      description: (
+        <div
+          className={`${sourceCodePro.className} bg-toast-success text-md rounded-sm p-2 text-white`}
+        >
+          <div>
+            <div>VAT(5%): {result.vat} BDT</div>
+            <div>
+              Demand Charge (Sanction Load*35/kWh Monthly):{" "}
+              {result.demandCharge} BDT
+            </div>
+            <div>Meter Rent (Monthly): {result.meterRent} BDT</div>
+            <div>Total Charge: {result.totalCharge} BDT</div>
+            <div>Rebate(1%): -{result.rebate} BDT</div>
+            <div className="font-semibold">
+              <span className="font-semibold">Total Energy Amount:</span>{" "}
+              {result.totalEnergy} BDT
+            </div>
+          </div>
+        </div>
+      ),
+    });
+    setResult(result);
+
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
 
@@ -96,9 +135,13 @@ export function EnergyCalculatorForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <h1 className="text-xl font-bold">Prepaid Meter Energy Calculator</h1>
+        <h1 className="text-2xl font-bold">Prepaid Meter Energy Calculator</h1>
         <div
-          className={`${sourceCodePro.className} rounded-sm bg-slate-400 p-2 text-sm`}
+          className={`${sourceCodePro.className} rounded-sm ${
+            result == defaultMeterCharges
+              ? `bg-slate-100`
+              : `bg-toast-success  animate-fade text-white animate-delay-300 animate-once`
+          } text-md p-2`}
         >
           <div>
             <div>VAT(5%): {result.vat} BDT</div>
@@ -115,76 +158,115 @@ export function EnergyCalculatorForm() {
             </div>
           </div>
         </div>
-        <FormField
-          control={form.control}
-          name="rechargeAmount"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Total Recharge Amount (BDT)</FormLabel>
-              <FormControl>
-                <Input
-                  type="number"
-                  placeholder="0"
-                  {...form.register("rechargeAmount", { valueAsNumber: true })}
-                />
-              </FormControl>
-              <FormDescription>Provide Amount To Be Recharged.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="text-lg">
+          <FormField
+            control={form.control}
+            name="rechargeAmount"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Total Recharge Amount (BDT)</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    placeholder="0"
+                    {...form.register("rechargeAmount", {
+                      valueAsNumber: true,
+                    })}
+                  />
+                </FormControl>
+                <FormDescription>
+                  Provide Amount To Be Recharged.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="sanctionLoad"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Meter Sanction Load (in kWh)</FormLabel>
-              <FormControl>
-                <Input
-                  type="number"
-                  placeholder="1"
-                  {...form.register("sanctionLoad", { valueAsNumber: true })}
-                />
-              </FormControl>
-              <FormDescription>Provide Sanction Load Amount.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          <FormField
+            control={form.control}
+            name="sanctionLoad"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Meter Sanction Load (in kWh)</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    placeholder="2"
+                    {...form.register("sanctionLoad", { valueAsNumber: true })}
+                  />
+                </FormControl>
+                <FormDescription>Provide Sanction Load Amount.</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="firstTime"
-          render={({ field }) => (
-            <FormItem className="space-y-3">
-              <FormLabel>
-                Is it your first time meter recharge this month?
-              </FormLabel>
-              <FormControl>
-                <RadioGroup
+          <FormField
+            control={form.control}
+            name="firstTime"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel>
+                  Is it your first time meter recharge this month?
+                </FormLabel>
+                <FormControl>
+                  <RadioGroup
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    className="flex flex-col space-y-1"
+                  >
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value="yes" />
+                      </FormControl>
+                      <FormLabel className="font-normal">Yes</FormLabel>
+                    </FormItem>
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value="no" />
+                      </FormControl>
+                      <FormLabel className="font-normal">No</FormLabel>
+                    </FormItem>
+                  </RadioGroup>
+                </FormControl>
+                <FormDescription>
+                  Recharging first time will deduct meter rent and demand
+                  charges.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="ownedBy"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Who owns the meter?</FormLabel>
+                <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
-                  className="flex flex-col space-y-1"
                 >
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="yes" />
-                    </FormControl>
-                    <FormLabel className="font-normal">Yes</FormLabel>
-                  </FormItem>
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="no" />
-                    </FormControl>
-                    <FormLabel className="font-normal">No</FormLabel>
-                  </FormItem>
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select customer or BPDB" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="customer">Customer</SelectItem>
+                    <SelectItem value="bpdb">BPDB</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormDescription>
+                  Meter is owned by BPDB or customer. If customer owns the
+                  meter, then no meter rent will be charged monthly.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
 
         <div className="space-x-4">
           <Button className="bg-green" type="submit">

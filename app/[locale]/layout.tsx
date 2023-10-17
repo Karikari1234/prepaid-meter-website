@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
+import { Toaster } from "@/components/ui/toaster";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "en" }];
@@ -43,6 +44,7 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
+          <Toaster />
         </NextIntlClientProvider>
       </body>
     </html>

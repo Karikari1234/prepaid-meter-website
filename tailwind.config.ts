@@ -21,6 +21,7 @@ const config: Config = {
         green: "#00513D",
         "green-light": "#00CC99",
         "green-deep": "#01382a",
+        "toast-success": "#00A86B",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -73,6 +74,7 @@ const config: Config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        wiggle: "wiggle 2s ease-in-out",
       },
       gridTemplateColumns: {
         footer: "400px repeat(4,1fr)",
