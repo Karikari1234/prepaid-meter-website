@@ -13,8 +13,8 @@ const MeterShortCodes = () => {
         Meter short codes are a convenient way to access information about your
         electricity meter, such as your balance, consumption, and tamper status.
         Different meter manufacturers have different short codes, so it is
-        important to consult your meter's manual for the specific codes for your
-        meter.
+        important to consult your meter&apos;s manual for the specific codes for
+        your meter.
       </p>
       <ShortCodeTable></ShortCodeTable>
     </div>
