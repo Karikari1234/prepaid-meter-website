@@ -8,14 +8,14 @@ const CustomerStats = () => {
       <h1 className="heading-text mb-4 !text-left !text-5xl">
         Prepaid Metering BPDB at a glance
       </h1>
-      <div className="h-96">
-        <CustomerChart></CustomerChart>
-      </div>
       <p>
         The Bangladesh Power Development Board (BPDB) has achieved a significant
         milestone in its prepaid meter installation drive, with the total number
         of customers now exceeding 17.64 lakh (1.764 million).
       </p>
+      <div className="h-96">
+        <CustomerChart></CustomerChart>
+      </div>
       <p>
         As of October 2023, BPDB has installed a total of 17,64,000 prepaid
         meters, which represents a significant increase from the previous year.

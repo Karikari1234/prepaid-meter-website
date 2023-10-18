@@ -32,7 +32,7 @@ const Header = () => {
             {t("title")}
           </div>
         </div>
-        <div className="md:flex md:basis-48 md:flex-row md:items-center md:space-x-4">
+        <div className="md:flex md:flex-row md:items-center md:space-x-4">
           <div className="md:flex md:items-center md:space-x-4">
             <div className="md:flex md:min-w-max md:items-center">
               <Image
@@ -58,14 +58,14 @@ const Header = () => {
               ></Image>
             </a>
           </div>
-          <div>
+          {/* <div>
             <button
               onClick={changeLocale}
               className="rounded border border-green bg-transparent px-4 py-2 text-green hover:border-transparent hover:bg-green hover:text-white"
             >
               {t("lang")}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="bg-green-light md:flex md:items-center md:justify-center">
@@ -74,15 +74,15 @@ const Header = () => {
             <Link href="/">Home</Link>
           </li>
           <li className="p-2 text-center hover:bg-white hover:text-green-light">
+            <Link href="/about">About</Link>
+          </li>
+          <li className="p-2 text-center hover:bg-white hover:text-green-light">
             <a target="_blank" href="http://180.211.137.8/">
               BPDB Issue Tracking
             </a>
           </li>
           <li className="p-2 text-center hover:bg-white hover:text-green-light">
-            <Link href="/bill-calculator">Calculate Meter Changes</Link>
-          </li>
-          <li className="p-2 text-center hover:bg-white hover:text-green-light">
-            <Link href="/about">About</Link>
+            <Link href="/bill-calculator">Calculate Meter Charges</Link>
           </li>
         </ul>
       </div>
