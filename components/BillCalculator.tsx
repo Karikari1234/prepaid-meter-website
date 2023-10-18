@@ -95,7 +95,7 @@ export function EnergyCalculatorForm() {
       title: "Your Meter Charges: ",
       description: (
         <div
-          className={`${sourceCodePro.className} bg-toast-success text-md rounded-sm p-2 text-white`}
+          className={`${sourceCodePro.className} text-md rounded-sm bg-toast-success p-2 text-white`}
         >
           <div>
             <div>VAT(5%): {result.vat} BDT</div>
@@ -121,6 +121,7 @@ export function EnergyCalculatorForm() {
 
   function onReset() {
     setResult(defaultMeterCharges);
+    setKey(key + 1);
     form.reset();
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     //document.body.style.zoom
@@ -131,16 +132,21 @@ export function EnergyCalculatorForm() {
   }, []);
 
   const [result, setResult] = useState(defaultMeterCharges);
+  const [key, setKey] = useState(0);
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8"
+        key={key}
+      >
         <h1 className="text-2xl font-bold">Prepaid Meter Energy Calculator</h1>
         <div
           className={`${sourceCodePro.className} rounded-sm ${
             result == defaultMeterCharges
               ? `bg-slate-100`
-              : `bg-toast-success  animate-fade text-white animate-delay-300 animate-once`
+              : `animate-fade  bg-toast-success text-white animate-delay-300 animate-once`
           } text-md p-2`}
         >
           <div>
