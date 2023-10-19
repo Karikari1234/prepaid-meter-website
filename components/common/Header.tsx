@@ -1,20 +1,16 @@
-"use client";
-
 import Image from "next/legacy/image";
 import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next-intl/client";
 
 const Header = () => {
-  const mlocale = useLocale();
-  const t = useTranslations("Header");
-  const router = useRouter();
-  const pathname = usePathname();
-  const changeLocale = () => {
-    mlocale == "en"
-      ? router.push(pathname, { locale: "bn" })
-      : router.push(pathname, { locale: "en" });
-  };
+  // const mlocale = useLocale();
+  // const t = useTranslations("Header");
+  // const router = useRouter();
+  // const pathname = usePathname();
+  // const changeLocale = () => {
+  //   mlocale == "en"
+  //     ? router.push(pathname, { locale: "bn" })
+  //     : router.push(pathname, { locale: "en" });
+  // };
   return (
     <header className="hidden md:mx-auto md:mb-8 md:block md:w-5/6 md:py-6">
       <div className="md:flex md:flex-row md:justify-between md:py-4">
@@ -29,7 +25,7 @@ const Header = () => {
             ></Image>
           </Link>
           <div className="font-bold md:whitespace-nowrap md:text-3xl">
-            {t("title")}
+            Prepaid Metering System BPDB
           </div>
         </div>
         <div className="md:flex md:flex-row md:items-center md:space-x-4">
@@ -41,7 +37,7 @@ const Header = () => {
                 height={18}
                 alt="phone icon"
               />
-              <div>{t("phone_number")}</div>
+              <div>16200</div>
             </div>
           </div>
           <div className="md:mt-2">

@@ -1,5 +1,5 @@
 import CustomerStats from "@/components/CustomerStats";
-import AboutComponent from "../../../components/About";
+import AboutComponent from "../../components/About";
 
 const About = () => {
   return (
