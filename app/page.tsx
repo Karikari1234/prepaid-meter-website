@@ -13,9 +13,6 @@ export default function Home({
       <HeroSection />
       <AboutComponent />
       {/* <CustomerOrderInformationCard /> */}
-      <MyComponent>
-        <CustomerOrderInformationCard x={searchParams} />
-      </MyComponent>
     </div>
   );
 }
