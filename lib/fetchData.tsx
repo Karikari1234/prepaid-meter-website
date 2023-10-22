@@ -1,6 +1,8 @@
 // Fetch two API endpoints for GET token and customer data
 
 import axios from "axios";
+import { CustomerInformation } from "./responseObject/customerInformation";
+import { OrderObjectArray } from "./responseObject/orderObjectArray";
 var qs = require("qs");
 var convert = require("xml-js");
 
@@ -9,8 +11,8 @@ const fetchCustomerData = async (meterNo: string) => {
   //   let data = qs.stringify(
   //     `<xml meterNo= ${meterNo} userName="zubayer" userPass="m7PM/lj+MYKoUcaydxQQe6Ez6Qal5N5DQAArpAmFcgOn+TLK3tN+VA==" />`,
   //   );
-
-  let data = await qs.stringify({
+  //let res: CustomerInformation;
+  let data = qs.stringify({
     reqXml: `<xml  meterNo="${meterNo}" userName="zubayer" userPass="m7PM/lj+MYKoUcaydxQQe6Ez6Qal5N5DQAArpAmFcgOn+TLK3tN+VA==" />`,
   });
 
@@ -27,11 +29,12 @@ const fetchCustomerData = async (meterNo: string) => {
     data: data,
   };
 
-  axios
-    .request(config)
-    .then((response: any) => {
-      var result = convert.xml2json(
-        response.data
+  try {
+    const res = await axios.request(config);
+    //console.log(res.data);
+    return JSON.parse(
+      convert.xml2json(
+        res.data
           .replace(/[\n\r]/g, "\\n")
           .replace(/&/g, "&amp;")
           .replace(/-/g, "&#45;"),
@@ -39,17 +42,17 @@ const fetchCustomerData = async (meterNo: string) => {
           compact: true,
           spaces: 4,
         },
-      );
-      console.log(result);
-      //console.log(JSON.stringify(response.data));
-    })
-    .catch((error: any) => {
-      console.log(error);
-    });
+      ),
+    ) as CustomerInformation;
+  } catch (error) {
+    console.log(error);
+  }
+
+  //return res;
 };
 
 const fetchLastThreeTokens = async (meterNo: string, customerNo: string) => {
-  let data = await qs.stringify({
+  let data = qs.stringify({
     reqXml: `<xml  meterNo="${meterNo}" customerNo="${customerNo}" userName="zubayer" userPass="m7PM/lj+MYKoUcaydxQQe6Ez6Qal5N5DQAArpAmFcgOn+TLK3tN+VA==" />`,
   });
 
@@ -65,11 +68,12 @@ const fetchLastThreeTokens = async (meterNo: string, customerNo: string) => {
     data: data,
   };
 
-  axios
-    .request(config)
-    .then((response: any) => {
-      var result = convert.xml2json(
-        response.data
+  try {
+    const res = await axios.request(config);
+    //console.log(res.data);
+    return JSON.parse(
+      convert.xml2json(
+        res.data
           .replace(/[\n\r]/g, "\\n")
           .replace(/&/g, "&amp;")
           .replace(/-/g, "&#45;"),
@@ -77,12 +81,11 @@ const fetchLastThreeTokens = async (meterNo: string, customerNo: string) => {
           compact: true,
           spaces: 4,
         },
-      );
-      console.log(result);
-    })
-    .catch((error: any) => {
-      console.log(error);
-    });
+      ),
+    ) as OrderObjectArray;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export { fetchCustomerData, fetchLastThreeTokens };

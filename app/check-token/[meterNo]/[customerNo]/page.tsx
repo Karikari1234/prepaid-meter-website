@@ -1,4 +1,5 @@
 import { fetchLastThreeTokens } from "@/lib/fetchData";
+import { OrderObjectArray } from "@/lib/responseObject/orderObjectArray";
 
 const ResultWithMeterAndCustomerNoPage = async ({
   params,
@@ -9,7 +10,8 @@ const ResultWithMeterAndCustomerNoPage = async ({
     params.meterNo,
     params.customerNo,
   );
-  return <div>{data}</div>;
+  console.log(data);
+  return data.result ? <div></div> : <div>No Result</div>;
 };
 
 export default ResultWithMeterAndCustomerNoPage;
