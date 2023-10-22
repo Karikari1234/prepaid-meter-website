@@ -13,7 +13,7 @@ const ResultWithOnlyMeterNoPage = async ({
   console.log(data);
 
   return data.result ? (
-    <div>{`${data.result._attributes.message}`}</div>
+    <pre>{`${JSON.stringify(data.result, null, 2)}`}</pre>
   ) : (
     <div></div>
   );

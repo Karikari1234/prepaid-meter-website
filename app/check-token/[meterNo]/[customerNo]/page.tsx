@@ -11,7 +11,11 @@ const ResultWithMeterAndCustomerNoPage = async ({
     params.customerNo,
   );
   console.log(data);
-  return data.result ? <div></div> : <div>No Result</div>;
+  return data.result ? (
+    <pre>{`${JSON.stringify(data.result.orders, null, 2)}`}</pre>
+  ) : (
+    <div>No Result</div>
+  );
 };
 
 export default ResultWithMeterAndCustomerNoPage;
