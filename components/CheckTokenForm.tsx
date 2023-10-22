@@ -34,8 +34,8 @@ const formSchema = z.object({
     .string({
       required_error: "Meter Number is required",
     })
-    .min(13, {
-      message: "Minimum 13 digits required",
+    .min(12, {
+      message: "Minimum 12 digits required",
     }),
   customerNo: z.string(),
 });
