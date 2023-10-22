@@ -83,6 +83,9 @@ const Header = () => {
           <li className="p-2 text-center hover:bg-white hover:text-green-light">
             <Link href="/check-token">Check Meter Token</Link>
           </li>
+          <li className="p-2 text-center hover:bg-white hover:text-green-light">
+            <Link href="/faq">FAQ</Link>
+          </li>
         </ul>
       </nav>
     </header>

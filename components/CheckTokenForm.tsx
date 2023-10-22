@@ -95,7 +95,7 @@ export function CheckInputForm() {
                     {...form.register("meterNo")}
                   />
                 </FormControl>
-                <FormDescription>Provide Meter Number.</FormDescription>
+                <FormDescription>Provide meter number.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -106,14 +106,14 @@ export function CheckInputForm() {
             name="customerNo"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Customer Number (Optional)</FormLabel>
+                <FormLabel>Customer Number(Optional)</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Input customer number"
                     {...form.register("customerNo")}
                   />
                 </FormControl>
-                <FormDescription>Provide Customer Number</FormDescription>
+                <FormDescription>Provide customer number.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
