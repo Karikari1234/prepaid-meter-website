@@ -23,7 +23,7 @@ const ResultWithOnlyMeterNoPage = async ({
       </div>
     </>
   ) : (
-    <div></div>
+    <div className="mb-96">No Results found.</div>
   );
 };
 

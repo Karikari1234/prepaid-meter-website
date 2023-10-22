@@ -19,7 +19,7 @@ const ResultWithMeterAndCustomerNoPage = async ({
       </div>
     </>
   ) : (
-    <div>No Result</div>
+    <div className="mb-96">No Results found.</div>
   );
 };
 
