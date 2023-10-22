@@ -1,4 +1,4 @@
-import { fetchLastThreeTokens } from "@/lib/fetchData";
+import { fetchCustomerData, fetchLastThreeTokens } from "@/lib/fetchData";
 import { OrderObjectArray } from "@/lib/responseObject/orderObjectArray";
 
 const ResultWithMeterAndCustomerNoPage = async ({
@@ -10,9 +10,14 @@ const ResultWithMeterAndCustomerNoPage = async ({
     params.meterNo,
     params.customerNo,
   );
-  console.log(data);
+
+  //console.log(data);
   return data.result ? (
-    <pre>{`${JSON.stringify(data.result.orders, null, 2)}`}</pre>
+    <>
+      <div>
+        <pre>{`${JSON.stringify(data.result.orders, null, 2)}`}</pre>
+      </div>
+    </>
   ) : (
     <div>No Result</div>
   );

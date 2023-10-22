@@ -51,7 +51,15 @@ const fetchCustomerData = async (meterNo: string) => {
   //return res;
 };
 
-const fetchLastThreeTokens = async (meterNo: string, customerNo: string) => {
+const fetchLastThreeTokens = async (meterNo: string, customerNo?: string) => {
+  if (!customerNo) {
+    const res: any = await fetchCustomerData(meterNo);
+    try {
+      customerNo = res.result.customerAccountNo._text;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   let data = qs.stringify({
     reqXml: `<xml  meterNo="${meterNo}" customerNo="${customerNo}" userName="zubayer" userPass="m7PM/lj+MYKoUcaydxQQe6Ez6Qal5N5DQAArpAmFcgOn+TLK3tN+VA==" />`,
   });
