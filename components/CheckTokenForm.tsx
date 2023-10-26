@@ -91,7 +91,7 @@ export function CheckInputForm() {
                 <FormLabel>Meter No</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Input your 13 digit meter number"
+                    placeholder="Input your 12 digit meter number"
                     {...form.register("meterNo")}
                   />
                 </FormControl>

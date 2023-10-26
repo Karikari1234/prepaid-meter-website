@@ -249,7 +249,7 @@ export function EnergyCalculatorForm() {
             name="ownedBy"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Who owns the meter?</FormLabel>
+                <FormLabel>Meter owner</FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
