@@ -1,3 +1,5 @@
+import CustomerInfoTable from "@/components/CustomerInformationTable";
+import TokenTable from "@/components/TokenTable";
 import { fetchCustomerData, fetchLastThreeTokens } from "@/lib/fetchData";
 import { CustomerInformation } from "@/lib/responseObject/customerInformation";
 import { OrderObjectArray } from "@/lib/responseObject/orderObjectArray";
@@ -15,6 +17,11 @@ const ResultWithOnlyMeterNoPage = async ({
 
   return data.result && customerData?.result ? (
     <>
+      <h2 className="heading-text mb-4 !text-center !text-2xl md:mb-8">
+        Customer Information
+      </h2>
+      <CustomerInfoTable customer={customerData} />
+      <TokenTable />
       <div>
         <pre>{`${JSON.stringify(data.result.orders, null, 2)}`}</pre>
       </div>

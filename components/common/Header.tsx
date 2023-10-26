@@ -12,7 +12,7 @@ const Header = () => {
   //     : router.push(pathname, { locale: "en" });
   // };
   return (
-    <header className="hidden md:mx-auto md:mb-8 md:block md:w-5/6 md:py-6">
+    <header className="hidden md:mx-auto md:mb-2 md:block md:w-5/6 md:py-6">
       <div className="md:flex md:flex-row md:justify-between md:py-4">
         <div className="md:flex md:items-center">
           <Link className="mr-3 block h-16 w-16 md:h-16 md:w-16" href="/">
