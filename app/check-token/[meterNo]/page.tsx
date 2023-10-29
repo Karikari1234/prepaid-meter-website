@@ -15,7 +15,7 @@ const ResultWithOnlyMeterNoPage = async ({
   //console.log(data);
   //console.log(data);
 
-  return data.result && customerData?.result ? (
+  return data?.result !== undefined && customerData?.result !== undefined ? (
     <>
       <h2 className="heading-text mb-4 !text-center !text-2xl md:mb-8">
         Customer Information
@@ -29,8 +29,10 @@ const ResultWithOnlyMeterNoPage = async ({
         <pre>{`${JSON.stringify(customerData.result, null, 2)}`}</pre>
       </div>
     </>
-  ) : (
+  ) : data?.res?.statusCode != 500 ? (
     <div className="mb-96">No Results found.</div>
+  ) : (
+    <div className="mb-96">An server error occured. Please try later.</div>
   );
 };
 

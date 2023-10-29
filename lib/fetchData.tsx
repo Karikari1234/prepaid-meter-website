@@ -1,6 +1,6 @@
 // Fetch two API endpoints for GET token and customer data
 
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { CustomerInformation } from "./responseObject/customerInformation";
 import { OrderObjectArray } from "./responseObject/orderObjectArray";
 var qs = require("qs");
@@ -32,6 +32,7 @@ const fetchCustomerData = async (meterNo: string) => {
   try {
     const res = await axios.request(config);
     //console.log(res.data);
+    //if (res.status == 500) throw new Error("Internal Server Error");
     return JSON.parse(
       convert.xml2json(
         res.data
@@ -45,21 +46,23 @@ const fetchCustomerData = async (meterNo: string) => {
       ),
     ) as CustomerInformation;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 
   //return res;
 };
 
 const fetchLastThreeTokens = async (meterNo: string, customerNo?: string) => {
-  if (!customerNo) {
-    const res: any = await fetchCustomerData(meterNo);
-    try {
+  try {
+    if (!customerNo) {
+      const res: any = await fetchCustomerData(meterNo);
+      //if (res.status === 500) throw new Error("Internal Server Error");
       customerNo = res.result.customerAccountNo._text;
-    } catch (error) {
-      console.log(error);
     }
+  } catch (error) {
+    //console.log(error);
   }
+
   let data = qs.stringify({
     reqXml: `<xml  meterNo="${meterNo}" customerNo="${customerNo}" userName="zubayer" userPass="m7PM/lj+MYKoUcaydxQQe6Ez6Qal5N5DQAArpAmFcgOn+TLK3tN+VA==" />`,
   });
@@ -79,6 +82,7 @@ const fetchLastThreeTokens = async (meterNo: string, customerNo?: string) => {
   try {
     const res = await axios.request(config);
     //console.log(res.data);
+    //if (res?.status === 500) throw new Error("Internal Server Error");
     return JSON.parse(
       convert.xml2json(
         res.data
@@ -92,7 +96,7 @@ const fetchLastThreeTokens = async (meterNo: string, customerNo?: string) => {
       ),
     ) as OrderObjectArray;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
 

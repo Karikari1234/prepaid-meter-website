@@ -12,7 +12,7 @@ const ResultWithMeterAndCustomerNoPage = async ({
   );
 
   //console.log(data);
-  return data.result ? (
+  return data?.result !== undefined ? (
     <>
       <div>
         <pre>{`${JSON.stringify(data.result.orders, null, 2)}`}</pre>

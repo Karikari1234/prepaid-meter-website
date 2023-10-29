@@ -52,12 +52,14 @@ const defaultCheckInput: CheckInput = {
 
 export function CheckInputForm() {
   const router = useRouter();
+  const [isDisabled, setIsDisabled] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
   //const toast = useToast();
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsDisabled(true);
     //call api and route to new page with result.
     if (values.customerNo) {
       router.push(`/check-token/${values.meterNo}/${values.customerNo}`);
@@ -121,7 +123,7 @@ export function CheckInputForm() {
         </div>
 
         <div className="space-x-4">
-          <Button className="bg-green" type="submit">
+          <Button className="bg-green" type="submit" disabled={isDisabled}>
             Submit
           </Button>
         </div>
