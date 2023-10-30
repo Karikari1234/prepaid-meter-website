@@ -3,11 +3,11 @@ const VendingOptionComponent = () => {
   return (
     <div>
       <div className="mb-8 flex flex-col justify-center space-y-2 md:items-center">
-        <h6 className="text-sm">Vending Partners</h6>
-        <h1 className="text-2xl font-semibold">
+        <h6 className="text-xl">Vending Partners</h6>
+        <h1 className="text-5xl font-semibold">
           Multiple digital vending gateways
         </h1>
-        <h6 className="text-sm">
+        <h6 className="text-xl">
           Vending can be done through a number of agents.
         </h6>
       </div>

@@ -10,7 +10,7 @@ export interface FeatureProps {
 const FeatureBox = (featureProps: FeatureProps) => {
   return (
     <div className="flex flex-col items-center space-y-4">
-      <div className="transform scale-75 w-1/2">
+      <div className="w-1/2 scale-75 transform">
         <Image
           src={featureProps.featureSVG}
           height={50}
@@ -19,10 +19,10 @@ const FeatureBox = (featureProps: FeatureProps) => {
           alt={featureProps.mainText}
         />
       </div>
-      <div className="font-bold text-center text-lg max-w-[70%] min-h-[3rem]">
+      <div className="min-h-[3rem] max-w-[70%] text-center text-2xl font-bold">
         {featureProps.mainText}
       </div>
-      <div className="text-center text-normal">{featureProps.subText}</div>
+      <div className="text-center text-xl">{featureProps.subText}</div>
     </div>
   );
 };

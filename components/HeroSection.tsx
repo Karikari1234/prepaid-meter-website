@@ -35,12 +35,12 @@ const HeroSection = () => {
             href="/bill-calculator
           "
           >
-            <button className="rounded border border-green bg-green px-4 py-2 text-white shadow-2xl hover:border-transparent hover:bg-green-deep">
+            <button className="rounded border border-green bg-green px-4 py-2 text-base text-white shadow-2xl hover:border-transparent hover:bg-green-deep">
               Meter Charges
             </button>
           </Link>
           <Link href="/meter-short-codes">
-            <button className="rounded border border-green bg-transparent px-4 py-2 text-green hover:bg-slate-100">
+            <button className="rounded border border-green bg-transparent px-4 py-2 text-base text-green hover:bg-slate-100">
               Meter Short Codes
             </button>
           </Link>
