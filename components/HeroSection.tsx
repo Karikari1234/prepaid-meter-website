@@ -7,7 +7,7 @@ const poppins = Poppins({ weight: "700", subsets: ["latin"] });
 const HeroSection = () => {
   return (
     <div className="grid lg:grid lg:grid-cols-hero lg:items-center lg:gap-4">
-      <div className="row-start-2 lg:order-last">
+      <div className="row-start-2 lg:order-last lg:col-start-2 lg:row-start-1">
         <Image
           priority={true}
           className=""
@@ -20,7 +20,7 @@ const HeroSection = () => {
       </div>
       <div className="">
         <h1
-          className={`${poppins.className} mb-5  animate-fade-up text-center text-4xl font-bold leading-normal animate-once md:text-left md:text-6xl md:leading-tight`}
+          className={`${poppins.className} mb-5  animate-fade-up text-center text-5xl font-bold leading-10 animate-once md:text-left md:text-6xl md:leading-tight`}
         >
           Welcome to <span className="whitespace-nowrap">Prepaid Metering</span>{" "}
           System BPDB
