@@ -20,6 +20,7 @@ const VendingOptionComponent = () => {
             src="/bkash-logo.png"
             alt="brand logo"
             fill={true}
+            sizes="100vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -32,6 +33,7 @@ const VendingOptionComponent = () => {
             src="/nagad-logo.svg"
             alt="brand logo"
             fill={true}
+            sizes="100vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -44,6 +46,7 @@ const VendingOptionComponent = () => {
             src="/upay-logo.webp"
             alt="brand logo"
             fill={true}
+            sizes="100vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -53,6 +56,7 @@ const VendingOptionComponent = () => {
             src="/tap-logo.png"
             alt="brand logo"
             fill={true}
+            sizes="100vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -65,6 +69,7 @@ const VendingOptionComponent = () => {
             src="/ssl-logo.png"
             alt="brand logo"
             fill={true}
+            sizes="100vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -77,6 +82,7 @@ const VendingOptionComponent = () => {
             src="/robi-logo.png"
             alt="brand logo"
             fill={true}
+            sizes="100vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -89,6 +95,7 @@ const VendingOptionComponent = () => {
             src="/gp-logo.png"
             alt="brand logo"
             fill={true}
+            sizes="100vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>

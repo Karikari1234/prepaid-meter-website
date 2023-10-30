@@ -11,24 +11,29 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/legacy/image";
 import Link from "next/link";
 
-function NavList({ openNav, onOpenNavChange }) {
+interface Props {
+  openNav: boolean;
+  onOpenNavChange: (openNav: boolean) => void;
+}
+
+function NavList(props: Props) {
   return (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <li
         className="text-center text-black"
-        onClick={() => onOpenNavChange(!openNav)}
+        onClick={() => props.onOpenNavChange(!props.openNav)}
       >
         <Link href="/">Home</Link>
       </li>
       <li
         className="text-center text-black"
-        onClick={() => onOpenNavChange(!openNav)}
+        onClick={() => props.onOpenNavChange(!props.openNav)}
       >
         <Link href="/about">About</Link>
       </li>
       <li
         className="text-center text-black"
-        onClick={() => onOpenNavChange(!openNav)}
+        onClick={() => props.onOpenNavChange(!props.openNav)}
       >
         <a target="_blank" href="http://180.211.137.8/">
           BPDB Issue Tracking
@@ -36,19 +41,19 @@ function NavList({ openNav, onOpenNavChange }) {
       </li>
       <li
         className="text-center text-black"
-        onClick={() => onOpenNavChange(!openNav)}
+        onClick={() => props.onOpenNavChange(!props.openNav)}
       >
         <Link href="/bill-calculator">Calculate Meter Charges</Link>
       </li>
       <li
         className="text-center text-black"
-        onClick={() => onOpenNavChange(!openNav)}
+        onClick={() => props.onOpenNavChange(!props.openNav)}
       >
         <Link href="/check-token">Check Meter Token</Link>
       </li>
       <li
         className="text-center text-black"
-        onClick={() => onOpenNavChange(!openNav)}
+        onClick={() => props.onOpenNavChange(!props.openNav)}
       >
         <Link href="/faq">FAQ</Link>
       </li>
@@ -68,10 +73,6 @@ export function MobileNavbar() {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, []);
-
-  React.useEffect(() => {
-    setOpenNav(!openNav);
   }, []);
 
   return (
@@ -94,9 +95,7 @@ export function MobileNavbar() {
         <div className="hidden lg:block">
           <NavList
             openNav={openNav}
-            onOpenNavChange={(
-              newOpenNav: boolean | ((prevState: boolean) => boolean),
-            ) => setOpenNav(newOpenNav)}
+            onOpenNavChange={(newOpenNav: boolean) => setOpenNav(newOpenNav)}
           />
         </div>
         <IconButton

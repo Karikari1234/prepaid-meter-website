@@ -6,10 +6,10 @@ const poppins = Poppins({ weight: "700", subsets: ["latin"] });
 
 const HeroSection = () => {
   return (
-    <div className="lg:grid lg:grid-cols-hero lg:items-center lg:gap-4">
-      <div className="lg:order-last">
+    <div className="grid lg:grid lg:grid-cols-hero lg:items-center lg:gap-4">
+      <div className="row-start-2 lg:order-last">
         <Image
-          priority
+          priority={true}
           className=""
           src="/hero-image.png"
           alt="BPDB logo"
