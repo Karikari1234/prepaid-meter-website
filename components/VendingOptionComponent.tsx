@@ -8,8 +8,7 @@ const VendingOptionComponent = () => {
           Multiple digital vending gateways
         </h1>
         <h6 className="text-sm">
-          Vending can be done through a number of agents that support meter
-          vending.
+          Vending can be done through a number of agents.
         </h6>
       </div>
       <div className="grid grid-cols-2  gap-8 md:grid-cols-3 md:grid-rows-3">

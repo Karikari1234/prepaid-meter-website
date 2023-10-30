@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
+import { MobileNavbar } from "@/components/MobileNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
 import Footer from "../components/common/Footer";
@@ -23,7 +24,12 @@ export default async function RootLayout({
         <title>BPDB Prepaid Metering System Website</title>
       </head>
       <body className={`${inter.className} relative`}>
-        <Header />
+        <div className="hidden md:block">
+          <Header />
+        </div>
+        <div className="md:hidden">
+          <MobileNavbar></MobileNavbar>
+        </div>
         {/* <ResponsiveNavbar /> */}
         <main className="w-full px-1 md:mx-auto md:w-5/6 md:p-0 ">
           {children}
