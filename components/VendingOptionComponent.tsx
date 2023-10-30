@@ -2,7 +2,7 @@ import Image from "next/image";
 const VendingOptionComponent = () => {
   return (
     <div>
-      <div className="mb-8 flex flex-col items-center justify-center space-y-2">
+      <div className="mb-8 flex flex-col justify-center space-y-2 md:items-center">
         <h6 className="text-sm">Vending Partners</h6>
         <h1 className="text-2xl font-semibold">
           Multiple digital vending gateways
