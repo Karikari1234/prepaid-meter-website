@@ -58,7 +58,10 @@ const VendingOptionComponent = () => {
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
-        <a href="#" className="relative flex h-16  items-center justify-center">
+        <a
+          href="https://sslcommerz.com/"
+          className="relative flex h-16  items-center justify-center"
+        >
           <Image
             src="/ssl-logo.png"
             alt="brand logo"
@@ -67,7 +70,10 @@ const VendingOptionComponent = () => {
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
-        <a href="#" className="relative flex h-16  items-center justify-center">
+        <a
+          href="https://www.robi.com.bd/en/personal/my-robi-app"
+          className="relative flex h-16  items-center justify-center"
+        >
           <Image
             src="/robi-logo.png"
             alt="brand logo"
@@ -76,8 +82,10 @@ const VendingOptionComponent = () => {
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
-        <a href="" className="hidden md:block"></a>
-        <a href="#" className="relative flex h-16  items-center justify-center">
+        <a
+          href="https://www.grameenphone.com/bpdb"
+          className="relative flex h-16  items-center justify-center md:col-start-2"
+        >
           <Image
             src="/gp-logo.png"
             alt="brand logo"
