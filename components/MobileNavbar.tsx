@@ -10,6 +10,7 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/legacy/image";
 import Link from "next/link";
+import { topMenu } from "@/lib/nav-menu";
 
 interface Props {
   openNav: boolean;
@@ -19,44 +20,15 @@ interface Props {
 function NavList(props: Props) {
   return (
     <ul className="my-2 flex flex-col gap-2 text-sm lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <li
-        className="text-center text-black"
-        onClick={() => props.onOpenNavChange(!props.openNav)}
-      >
-        <Link href="/">Home</Link>
-      </li>
-      <li
-        className="text-center text-black"
-        onClick={() => props.onOpenNavChange(!props.openNav)}
-      >
-        <Link href="/about">About</Link>
-      </li>
-      <li
-        className="text-center text-black"
-        onClick={() => props.onOpenNavChange(!props.openNav)}
-      >
-        <a target="_blank" href="http://180.211.137.8/">
-          BPDB Issue Tracking
-        </a>
-      </li>
-      <li
-        className="text-center text-black"
-        onClick={() => props.onOpenNavChange(!props.openNav)}
-      >
-        <Link href="/bill-calculator">Calculate Meter Charges</Link>
-      </li>
-      <li
-        className="text-center text-black"
-        onClick={() => props.onOpenNavChange(!props.openNav)}
-      >
-        <Link href="/check-token">Check Meter Token</Link>
-      </li>
-      <li
-        className="text-center text-black"
-        onClick={() => props.onOpenNavChange(!props.openNav)}
-      >
-        <Link href="/faq">FAQ</Link>
-      </li>
+      {topMenu.map((item) => (
+        <li
+          key={item.title}
+          className="text-center text-black"
+          onClick={() => props.onOpenNavChange(!props.openNav)}
+        >
+          <Link href={item.route}>{item.title}</Link>
+        </li>
+      ))}
     </ul>
   );
 }

@@ -1,3 +1,4 @@
+import { topMenu } from "@/lib/nav-menu";
 import Image from "next/legacy/image";
 import Link from "next/link";
 
@@ -66,26 +67,14 @@ const Header = () => {
       </div>
       <nav className="bg-green-light md:flex md:items-center md:justify-center">
         <ul className="md:flex md:justify-between md:text-sm md:font-semibold md:text-white">
-          <li className="p-2 text-center hover:bg-white hover:text-green-light">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="p-2 text-center hover:bg-white hover:text-green-light">
-            <Link href="/about">About</Link>
-          </li>
-          <li className="p-2 text-center hover:bg-white hover:text-green-light">
-            <a target="_blank" href="http://180.211.137.8/">
-              BPDB Issue Tracking
-            </a>
-          </li>
-          <li className="p-2 text-center hover:bg-white hover:text-green-light">
-            <Link href="/bill-calculator">Calculate Meter Charges</Link>
-          </li>
-          <li className="p-2 text-center hover:bg-white hover:text-green-light">
-            <Link href="/check-token">Check Meter Token</Link>
-          </li>
-          <li className="p-2 text-center hover:bg-white hover:text-green-light">
-            <Link href="/faq">FAQ</Link>
-          </li>
+          {topMenu.map((item) => (
+            <li
+              key={item.title}
+              className="px-4 py-2 text-center hover:bg-white hover:text-green-light"
+            >
+              <Link href={item.route}>{item.title}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
