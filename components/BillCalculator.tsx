@@ -141,13 +141,13 @@ export function EnergyCalculatorForm() {
         className="space-y-8"
         key={key}
       >
-        <h1 className="text-2xl font-bold">Prepaid Meter Energy Calculator</h1>
+        <h1 className="text-3xl font-bold">Prepaid Meter Energy Calculator</h1>
         <div
           className={`${sourceCodePro.className} rounded-sm ${
             result == defaultMeterCharges
               ? `bg-slate-100`
               : `animate-fade  bg-toast-success text-white animate-delay-300 animate-once`
-          } text-md p-2`}
+          } p-2 text-base`}
         >
           <div>
             <div>VAT(5%): {result.vat} BDT</div>
@@ -280,7 +280,7 @@ export function EnergyCalculatorForm() {
           </Button>
           <Button
             type="reset"
-            className="bg-slate-200 text-black hover:bg-slate-300"
+            className="bg-slate-200 hover:bg-slate-300 text-black"
             onClick={onReset}
           >
             Reset

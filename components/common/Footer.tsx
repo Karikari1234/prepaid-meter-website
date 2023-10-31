@@ -104,16 +104,7 @@ const Footer = () => {
                     Why Prepaid
                   </Link>
                 </li>
-                <li>
-                  <Link className="text-sm font-light" href="path">
-                    New Updates
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-sm font-light" href="path">
-                    Contact Us
-                  </Link>
-                </li>
+                
                 <li></li>
               </ul>
             </div>

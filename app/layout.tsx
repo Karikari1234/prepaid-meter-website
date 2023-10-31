@@ -39,7 +39,9 @@ export default async function RootLayout({
           {children}
         </main>
         <Footer />
-        <Toaster />
+        <div className="hidden md:block">
+          <Toaster />
+        </div>
       </body>
     </html>
   );
