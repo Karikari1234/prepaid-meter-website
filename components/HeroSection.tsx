@@ -1,26 +1,24 @@
-import Image from "next/legacy/image";
-import { Poppins } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
-
-const poppins = Poppins({ weight: "700", subsets: ["latin"] });
 
 const HeroSection = () => {
   return (
     <div className="grid lg:grid lg:grid-cols-hero lg:items-center lg:gap-4">
       <div className="row-start-2 lg:order-last lg:col-start-2 lg:row-start-1">
-        <Image
-          priority={true}
-          className=""
-          src="/hero-image.png"
-          alt="BPDB logo"
-          layout="responsive"
-          width={400}
-          height={400}
-        ></Image>
+        <div className="relative mx-auto h-[400px] w-[400px]">
+          <Image
+            priority={true}
+            src="/hero-image.png"
+            alt="BPDB logo"
+            fill={true}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            style={{ objectFit: "contain" }}
+          ></Image>
+        </div>
       </div>
       <div className="">
         <h1
-          className={`${poppins.className} mb-5  animate-fade-up text-center text-4xl font-bold animate-once md:text-left md:text-5xl md:leading-tight`}
+          className={`mb-5  animate-fade-up text-center text-4xl font-bold animate-once md:text-left md:text-5xl md:leading-tight`}
         >
           Welcome to{" "}
           <span className="md:whitespace-nowrap">Prepaid Metering</span> System

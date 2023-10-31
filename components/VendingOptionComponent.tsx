@@ -14,7 +14,7 @@ const VendingOptionComponent = () => {
       <div className="grid grid-cols-2  gap-8 md:grid-cols-3 md:grid-rows-3">
         <a
           href="https://www.bkash.com/products-services/electricity-paybill"
-          className="relative flex h-16 items-center justify-center"
+          className="relative mx-auto flex h-16 w-64 items-center justify-center"
         >
           <Image
             src="/bkash-logo.png"
@@ -27,7 +27,7 @@ const VendingOptionComponent = () => {
         </a>
         <a
           href="https://nagad.com.bd/services/?service=bill-pay"
-          className="relative flex h-16  items-center justify-center"
+          className="relative mx-auto flex h-24 w-24 items-center justify-center"
         >
           <Image
             src="/nagad-logo.svg"
@@ -40,7 +40,7 @@ const VendingOptionComponent = () => {
         </a>
         <a
           href="https://www.upaybd.com/products/Pay-Bill"
-          className="relative flex h-16  items-center justify-center"
+          className="relative mx-auto flex  h-24 w-24 items-center justify-center"
         >
           <Image
             src="/upay-logo.webp"
@@ -51,7 +51,10 @@ const VendingOptionComponent = () => {
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
-        <a href="#" className="relative flex h-16  items-center justify-center">
+        <a
+          href="#"
+          className="relative mx-auto flex h-16 w-16  items-center justify-center"
+        >
           <Image
             src="/tap-logo.png"
             alt="brand logo"
@@ -63,7 +66,7 @@ const VendingOptionComponent = () => {
         </a>
         <a
           href="https://sslcommerz.com/"
-          className="relative flex h-16  items-center justify-center"
+          className="relative mx-auto flex h-16 w-64  items-center justify-center"
         >
           <Image
             src="/ssl-logo.png"
@@ -76,7 +79,7 @@ const VendingOptionComponent = () => {
         </a>
         <a
           href="https://www.robi.com.bd/en/personal/my-robi-app"
-          className="relative flex h-16  items-center justify-center"
+          className="relative mx-auto flex h-16 w-16 items-center justify-center"
         >
           <Image
             src="/robi-logo.png"
@@ -89,7 +92,7 @@ const VendingOptionComponent = () => {
         </a>
         <a
           href="https://www.grameenphone.com/bpdb"
-          className="relative flex h-16  items-center justify-center md:col-start-2"
+          className="relative mx-auto  h-16 w-64  items-center justify-center md:col-start-2"
         >
           <Image
             src="/gp-logo.png"

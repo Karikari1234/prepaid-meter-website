@@ -1,5 +1,5 @@
 import { topMenu } from "@/lib/nav-menu";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 const Header = () => {
@@ -16,28 +16,35 @@ const Header = () => {
     <header className="hidden md:mx-auto md:mb-2 md:block md:w-5/6 md:pb-6">
       <div className="md:flex md:flex-row md:justify-between md:py-4">
         <div className="md:flex md:items-center">
-          <Link className="mr-3 block h-16 w-16 md:h-12 md:w-12" href="/">
+          <Link
+            className="relative mr-3 block h-16 w-16 md:h-12 md:w-12"
+            href="/"
+            as={"image"}
+          >
             <Image
               src="/site-logo.png"
               alt="BPDB logo"
-              layout="responsive"
-              width={100}
-              height={100}
+              fill={true}
+              sizes="(max-width: 768px) 100vw, 33vw"
+              style={{ objectFit: "contain" }}
             ></Image>
           </Link>
-          <div className="font-bold md:w-1/2 md:text-base">
+          <div className="font-black md:w-1/2 md:text-base">
             Prepaid Metering System BPDB
           </div>
         </div>
         <div className="md:flex md:flex-row md:items-center md:space-x-4">
           <div className="md:flex md:items-center md:space-x-4">
             <div className="md:flex md:min-w-max md:items-center">
-              <Image
-                src="/phone-icon.svg"
-                width={20}
-                height={20}
-                alt="phone icon"
-              />
+              <div className="relative h-5 w-5">
+                <Image
+                  src="/phone-icon.svg"
+                  fill={true}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  style={{ objectFit: "contain" }}
+                  alt="phone icon"
+                />
+              </div>
               <div className="text-sm">16200</div>
             </div>
           </div>
@@ -47,12 +54,15 @@ const Header = () => {
               target="_blank"
               className="md:flex md:min-w-max md:items-center"
             >
-              <Image
-                src="/facebook-icon.svg"
-                width={35}
-                height={35}
-                alt="facebook icon"
-              ></Image>
+              <div className="relative mx-auto h-9 w-9">
+                <Image
+                  src="/facebook-icon.svg"
+                  fill={true}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  style={{ objectFit: "contain" }}
+                  alt="facebook icon"
+                ></Image>
+              </div>
             </a>
           </div>
           {/* <div>

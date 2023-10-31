@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -8,15 +8,16 @@ const Footer = () => {
         <div className="md:mb-8 md:grid md:grid-cols-footer">
           <div className="mb-4 flex items-center md:col-span-1 md:min-w-[5rem] md:max-w-[250px] md:flex-col md:items-start">
             <Link
-              className="mr-3 block h-16 w-16 md:mb-4 md:h-24 md:w-24"
+              className="relative mr-3 h-16 w-16 md:mb-4 md:h-16 md:w-16"
               href="/"
+              as={"image"}
             >
               <Image
                 src="/site-logo.png"
                 alt="BPDB logo"
-                layout="responsive"
-                width={100}
-                height={96}
+                fill={true}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                style={{ objectFit: "contain" }}
               ></Image>
             </Link>
             <div className="text-semibold text-lg md:hidden">
@@ -104,7 +105,7 @@ const Footer = () => {
                     Why Prepaid
                   </Link>
                 </li>
-                
+
                 <li></li>
               </ul>
             </div>

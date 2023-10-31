@@ -8,7 +8,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { topMenu } from "@/lib/nav-menu";
 
@@ -51,14 +51,20 @@ export function MobileNavbar() {
     <Navbar className="mx-auto mb-4 max-w-full rounded px-6 py-3">
       <div className="flex items-center justify-between text-blue-gray-900">
         <div className="flex items-center">
-          <Link className="mr-3 block h-12 w-12 md:h-8 md:w-16" href="/">
-            <Image
-              src="/site-logo.png"
-              alt="BPDB logo"
-              layout="responsive"
-              width={25}
-              height={25}
-            ></Image>
+          <Link
+            className="mr-3 block h-12 w-12 md:h-8 md:w-16"
+            href="/"
+            as={"image"}
+          >
+            <div className="relative mx-auto h-12 w-12">
+              <Image
+                src="/site-logo.png"
+                alt="BPDB logo"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                style={{ objectFit: "contain" }}
+              ></Image>
+            </div>
           </Link>
           <div className="text-sm font-bold md:w-1/2">
             Prepaid Metering System BPDB
