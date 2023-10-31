@@ -1,8 +1,13 @@
 import CustomerInfoTable from "@/components/CustomerInformationTable";
+import TokenInfoTable from "@/components/TokenInformationTable";
 import TokenTable from "@/components/TokenTable";
+import { dummyOrders } from "@/lib/example-data";
 import { fetchCustomerData, fetchLastThreeTokens } from "@/lib/fetchData";
 import { CustomerInformation } from "@/lib/responseObject/customerInformation";
-import { OrderObjectArray } from "@/lib/responseObject/orderObjectArray";
+import {
+  OrderObjectArray,
+  Orders,
+} from "@/lib/responseObject/orderObjectArray";
 
 const ResultWithOnlyMeterNoPage = async ({
   params,
@@ -15,22 +20,26 @@ const ResultWithOnlyMeterNoPage = async ({
   //console.log(data);
   //console.log(data);
 
+  const newOrderArray: Orders = dummyOrders as Orders;
+  //console.log(newOrderArray.order[0].customerNo);
+
   return data?.result !== undefined && customerData?.result !== undefined ? (
-    <>
+    <div className="space-y-8">
       <h2 className="heading-text mb-4 !text-center !text-2xl md:mb-8">
         Customer Information
       </h2>
       <CustomerInfoTable customer={customerData} />
-      <TokenTable />
+      <TokenInfoTable tokens={data.result} />
+
       <div>
         <pre>{`${JSON.stringify(data.result.orders, null, 2)}`}</pre>
       </div>
       <div>
         <pre>{`${JSON.stringify(customerData.result, null, 2)}`}</pre>
       </div>
-    </>
+    </div>
   ) : data?.res?.statusCode != 500 ? (
-    <div className="mb-96">No Results found.</div>
+    <div className="mb-96">No results found.</div>
   ) : (
     <div className="mb-96">An server error occured. Please try later.</div>
   );

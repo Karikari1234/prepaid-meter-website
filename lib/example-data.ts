@@ -1,4 +1,4 @@
-const orders = {
+export const dummyOrders = {
     "order": [
       {
         "date": {
