@@ -108,7 +108,7 @@ export function CheckInputForm() {
             name="customerNo"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Customer Number(Optional)</FormLabel>
+                <FormLabel>Customer number (optional)</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Input customer number"
