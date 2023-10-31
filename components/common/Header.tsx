@@ -15,7 +15,7 @@ const Header = () => {
     <header className="hidden md:mx-auto md:mb-2 md:block md:w-5/6 md:py-6">
       <div className="md:flex md:flex-row md:justify-between md:py-4">
         <div className="md:flex md:items-center">
-          <Link className="mr-3 block h-16 w-16 md:h-16 md:w-16" href="/">
+          <Link className="mr-3 block h-16 w-16 md:h-12 md:w-12" href="/">
             <Image
               src="/site-logo.png"
               alt="BPDB logo"
@@ -24,7 +24,7 @@ const Header = () => {
               height={100}
             ></Image>
           </Link>
-          <div className="font-bold md:whitespace-nowrap md:text-3xl">
+          <div className="font-bold md:w-1/2 md:text-base">
             Prepaid Metering System BPDB
           </div>
         </div>
@@ -34,10 +34,10 @@ const Header = () => {
               <Image
                 src="/phone-icon.svg"
                 width={20}
-                height={18}
+                height={20}
                 alt="phone icon"
               />
-              <div>16200</div>
+              <div className="text-sm">16200</div>
             </div>
           </div>
           <div className="md:mt-2">
@@ -65,7 +65,7 @@ const Header = () => {
         </div>
       </div>
       <nav className="bg-green-light md:flex md:items-center md:justify-center">
-        <ul className="md:flex md:justify-between md:font-semibold md:text-white">
+        <ul className="md:flex md:justify-between md:text-sm md:font-semibold md:text-white">
           <li className="p-2 text-center hover:bg-white hover:text-green-light">
             <Link href="/">Home</Link>
           </li>

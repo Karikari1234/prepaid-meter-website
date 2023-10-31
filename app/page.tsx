@@ -15,7 +15,7 @@ export default function Home({
       <HeroSection />
       <VendingOptionComponent />
       <AboutComponent />
-      <h1 className="heading-text mb-4 !text-center !text-5xl md:mb-8">
+      <h1 className="heading-text !text-center !text-4xl">
         Frequently Asked Questions
       </h1>
       <div className="md:mx-auto md:w-5/6">

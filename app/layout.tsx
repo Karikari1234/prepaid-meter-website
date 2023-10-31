@@ -1,10 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { MobileNavbar } from "@/components/MobileNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+});
 import Footer from "../components/common/Footer";
 import Header from "@/components/common/Header";
 
@@ -23,7 +27,7 @@ export default async function RootLayout({
       <head>
         <title>BPDB Prepaid Metering System Website</title>
       </head>
-      <body className={`${inter.className} relative`}>
+      <body className={`${poppins.className} relative`}>
         <div className="hidden md:block">
           <Header />
         </div>

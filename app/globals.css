@@ -76,5 +76,5 @@
 }
 
 .heading-text {
-  @apply font-bold  text-4xl text-center leading-normal mb-5 md:text-6xl md:text-left md:leading-tight;
+  @apply font-bold  text-4xl text-center leading-normal mb-5 md:text-4xl md:text-left md:leading-tight;
 }

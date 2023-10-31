@@ -11,10 +11,8 @@ const AboutComponent = () => {
   });
   return (
     <div>
-      <h1 className="heading-text mb-4 !text-left !text-5xl md:mb-8">
-        Benefits
-      </h1>
-      <div className="mb-8 flex flex-col space-y-4 text-xl md:mb-16 md:flex-row md:space-x-4 md:space-y-0">
+      <h1 className="heading-text mb-4 !text-left md:mb-8">Benefits</h1>
+      <div className="mb-8 flex flex-col space-y-4 text-base text-gray-700 md:mb-16 md:flex-row md:space-x-4 md:space-y-0">
         <div>
           Postpaid billing is slow, costly, and error-prone. It relies on manual
           meter reading, bill preparation, and distribution. It also allows

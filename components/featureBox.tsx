@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export interface FeatureProps {
   order: number;
@@ -9,20 +9,20 @@ export interface FeatureProps {
 
 const FeatureBox = (featureProps: FeatureProps) => {
   return (
-    <div className="flex flex-col items-center space-y-4">
-      <div className="w-1/2 scale-75 transform">
+    <div className="flex flex-col items-start space-y-4 ">
+      <div className="relative h-16 w-16">
         <Image
           src={featureProps.featureSVG}
-          height={50}
-          width={50}
-          layout="responsive"
+          fill={true}
+          sizes="(max-width: 768px) 100vw, 33vw"
+          style={{ objectFit: "contain" }}
           alt={featureProps.mainText}
         />
       </div>
-      <div className="min-h-[3rem] max-w-[70%] text-center text-2xl font-bold">
+      <div className="min-h-[3rem] max-w-[70%] text-lg font-bold ">
         {featureProps.mainText}
       </div>
-      <div className="text-center text-xl">{featureProps.subText}</div>
+      <div className="text-base text-gray-700 ">{featureProps.subText}</div>
     </div>
   );
 };

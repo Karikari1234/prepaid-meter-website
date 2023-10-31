@@ -2,12 +2,12 @@ import Image from "next/image";
 const VendingOptionComponent = () => {
   return (
     <div>
-      <div className="mb-8 flex flex-col justify-center space-y-2 md:items-center">
-        <h6 className="text-xl">Vending Partners</h6>
-        <h1 className="text-5xl font-semibold">
+      <div className="mb-8 flex flex-col justify-center space-y-6 md:items-center">
+        <h6 className="text-3xl font-semibold md:text-3xl">Vending Partners</h6>
+        <h1 className="text-4xl font-semibold md:text-5xl">
           Multiple digital vending gateways
         </h1>
-        <h6 className="text-xl">
+        <h6 className="text-lg md:text-xl">
           Vending can be done through a number of agents.
         </h6>
       </div>
@@ -20,7 +20,7 @@ const VendingOptionComponent = () => {
             src="/bkash-logo.png"
             alt="brand logo"
             fill={true}
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -33,7 +33,7 @@ const VendingOptionComponent = () => {
             src="/nagad-logo.svg"
             alt="brand logo"
             fill={true}
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -46,7 +46,7 @@ const VendingOptionComponent = () => {
             src="/upay-logo.webp"
             alt="brand logo"
             fill={true}
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -56,7 +56,7 @@ const VendingOptionComponent = () => {
             src="/tap-logo.png"
             alt="brand logo"
             fill={true}
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -69,7 +69,7 @@ const VendingOptionComponent = () => {
             src="/ssl-logo.png"
             alt="brand logo"
             fill={true}
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -82,7 +82,7 @@ const VendingOptionComponent = () => {
             src="/robi-logo.png"
             alt="brand logo"
             fill={true}
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
@@ -95,7 +95,7 @@ const VendingOptionComponent = () => {
             src="/gp-logo.png"
             alt="brand logo"
             fill={true}
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
             className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>

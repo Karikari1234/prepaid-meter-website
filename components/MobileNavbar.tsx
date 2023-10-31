@@ -18,7 +18,7 @@ interface Props {
 
 function NavList(props: Props) {
   return (
-    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="my-2 flex flex-col gap-2 text-sm lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <li
         className="text-center text-black"
         onClick={() => props.onOpenNavChange(!props.openNav)}
@@ -77,9 +77,9 @@ export function MobileNavbar() {
 
   return (
     <Navbar className="mx-auto mb-4 max-w-full rounded px-6 py-3">
-      <div className="text-blue-gray-900 flex items-center justify-between">
+      <div className="flex items-center justify-between text-blue-gray-900">
         <div className="flex items-center">
-          <Link className="mr-3 block h-12 w-12 md:h-16 md:w-16" href="/">
+          <Link className="mr-3 block h-12 w-12 md:h-8 md:w-16" href="/">
             <Image
               src="/site-logo.png"
               alt="BPDB logo"
@@ -88,7 +88,7 @@ export function MobileNavbar() {
               height={25}
             ></Image>
           </Link>
-          <div className="text-md font-bold md:text-3xl">
+          <div className="text-sm font-bold md:w-1/2">
             Prepaid Metering System BPDB
           </div>
         </div>
