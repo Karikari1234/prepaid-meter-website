@@ -52,7 +52,7 @@ const VendingOptionComponent = () => {
           ></Image>
         </a>
         <a
-          href="#"
+          href="https://trustaxiatapay.com/services/pay-bill/"
           className="relative mx-auto flex h-16 w-16  items-center justify-center"
         >
           <Image
