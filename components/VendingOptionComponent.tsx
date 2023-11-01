@@ -56,7 +56,7 @@ const VendingOptionComponent = () => {
           className="relative mx-auto flex h-16 w-16  items-center justify-center"
         >
           <Image
-            src="/tap-logo.png"
+            src="/r-tap-logo.png"
             alt="brand logo"
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
@@ -82,7 +82,7 @@ const VendingOptionComponent = () => {
           className="relative mx-auto flex h-16 w-16 items-center justify-center"
         >
           <Image
-            src="/robi-logo.png"
+            src="/r-robi-logo.png"
             alt="brand logo"
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
@@ -95,7 +95,7 @@ const VendingOptionComponent = () => {
           className="relative mx-auto  h-16 w-64  items-center justify-center md:col-start-2"
         >
           <Image
-            src="/gp-logo.png"
+            src="/r-gp-logo.png"
             alt="brand logo"
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
