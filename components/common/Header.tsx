@@ -19,7 +19,6 @@ const Header = () => {
           <Link
             className="relative mr-3 block h-16 w-16 md:h-12 md:w-12"
             href="/"
-            as={"image"}
           >
             <Image
               src="/site-logo.png"

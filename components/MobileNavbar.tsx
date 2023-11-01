@@ -51,11 +51,7 @@ export function MobileNavbar() {
     <Navbar className="mx-auto mb-4 max-w-full rounded px-6 py-3">
       <div className="flex items-center justify-between text-blue-gray-900">
         <div className="flex items-center">
-          <Link
-            className="mr-3 block h-12 w-12 md:h-8 md:w-16"
-            href="/"
-            as={"image"}
-          >
+          <Link className="mr-3 block h-12 w-12 md:h-8 md:w-16" href="/">
             <div className="relative mx-auto h-12 w-12">
               <Image
                 src="/site-logo.png"

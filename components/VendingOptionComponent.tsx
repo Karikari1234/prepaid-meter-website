@@ -66,7 +66,7 @@ const VendingOptionComponent = () => {
         </a>
         <a
           href="https://sslcommerz.com/"
-          className="relative mx-auto flex h-16 w-64  items-center justify-center"
+          className="relative mx-auto flex h-8 w-32  items-center justify-center"
         >
           <Image
             src="/ssl-logo.png"
