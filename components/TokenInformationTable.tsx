@@ -22,7 +22,7 @@ const TokenInfoTable = (props: Props) => {
         <Table className="">
           <TableCaption>Last Tokens summary.</TableCaption>
           <TableHeader className="">
-            <TableRow className="bg-slate-100">
+            <TableRow className="bg-gray-100">
               <TableHead>Date</TableHead>
               <TableHead>Token no.</TableHead>
               <TableHead>Sequence</TableHead>

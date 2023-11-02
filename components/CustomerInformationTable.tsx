@@ -24,7 +24,7 @@ const CustomerInfoTable = (props: Props) => {
         <Table className="">
           <TableCaption>Customer Information Summary.</TableCaption>
           <TableHeader className="">
-            <TableRow className="bg-slate-100">
+            <TableRow className="bg-gray-100">
               <TableHead className="w-1/3 text-right">Metadata</TableHead>
               <TableHead className="">Information</TableHead>
             </TableRow>

@@ -145,7 +145,7 @@ export function EnergyCalculatorForm() {
         <div
           className={`${sourceCodePro.className} rounded-sm ${
             result == defaultMeterCharges
-              ? `bg-slate-100`
+              ? `bg-gray-100`
               : `animate-fade  bg-toast-success text-white animate-delay-300 animate-once`
           } p-2 text-base`}
         >
@@ -280,7 +280,7 @@ export function EnergyCalculatorForm() {
           </Button>
           <Button
             type="reset"
-            className="bg-slate-200 hover:bg-slate-300 text-black"
+            className="bg-gray-200 text-black hover:bg-gray-300"
             onClick={onReset}
           >
             Reset

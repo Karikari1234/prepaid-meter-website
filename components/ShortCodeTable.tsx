@@ -28,7 +28,7 @@ const ShortCodeTable = () => {
       <Table className="">
         <TableCaption>A list of meter short codes.</TableCaption>
         <TableHeader className="">
-          <TableRow className="bg-slate-100">
+          <TableRow className="bg-gray-100">
             <TableHead className="">Serial No.</TableHead>
             <TableHead className="">Information</TableHead>
             <TableHead>Hexing Meter</TableHead>
