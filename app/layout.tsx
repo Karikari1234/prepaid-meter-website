@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { MobileNavbar } from "@/components/MobileNavbar";
-import { Analytics } from "@vercel/analytics/react";
+//import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -43,7 +43,7 @@ export default async function RootLayout({
         <div className="hidden md:block">
           <Toaster />
         </div>
-        <Analytics />
+        {/* <Analytics /> */}
       </body>
     </html>
   );
