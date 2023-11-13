@@ -10,7 +10,6 @@ const Footer = () => {
             <Link
               className="relative mr-3 h-16 w-16 md:mb-4 md:h-16 md:w-16"
               href="/"
-              as={"image"}
             >
               <Image
                 src="/site-logo.png"
