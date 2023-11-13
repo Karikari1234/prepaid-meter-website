@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { MobileNavbar } from "@/components/MobileNavbar";
-//import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -12,6 +11,7 @@ const poppins = Poppins({
 });
 import Footer from "../components/common/Footer";
 import Header from "@/components/common/Header";
+import MprogressBar from "@/components/common/Progressbar";
 
 export const metadata: Metadata = {
   title: "Prepaid Metering System BPDB",
@@ -44,6 +44,7 @@ export default async function RootLayout({
           <Toaster />
         </div>
         {/* <Analytics /> */}
+        <MprogressBar />
       </body>
     </html>
   );
