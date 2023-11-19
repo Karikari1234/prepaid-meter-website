@@ -11,7 +11,7 @@ const VendingOptionComponent = () => {
           Vending can be done through a number of agents.
         </h6>
       </div>
-      <div className="grid grid-cols-2  gap-8 md:grid-cols-3 md:grid-rows-3">
+      <div className="grid grid-cols-2 place-content-center place-items-center gap-4 md:mx-auto md:w-3/5 md:grid-cols-3 md:grid-rows-3">
         <a
           href="https://www.bkash.com/products-services/electricity-paybill"
           className="relative mx-auto flex h-16 w-64 items-center justify-center"
@@ -23,7 +23,7 @@ const VendingOptionComponent = () => {
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
-            className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
+            className="transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
         <a
@@ -37,7 +37,7 @@ const VendingOptionComponent = () => {
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
-            className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
+            className="transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
         <a
@@ -51,7 +51,7 @@ const VendingOptionComponent = () => {
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
-            className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
+            className=" transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
         <a
@@ -65,7 +65,7 @@ const VendingOptionComponent = () => {
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
-            className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
+            className="transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
         <a
@@ -79,7 +79,7 @@ const VendingOptionComponent = () => {
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
-            className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
+            className="transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
         <a
@@ -93,7 +93,7 @@ const VendingOptionComponent = () => {
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
-            className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
+            className=" transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
         <a
@@ -107,7 +107,7 @@ const VendingOptionComponent = () => {
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             style={{ objectFit: "contain" }}
-            className="grayscale transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
+            className="transition duration-700 ease-in-out hover:scale-125 hover:grayscale-0"
           ></Image>
         </a>
       </div>

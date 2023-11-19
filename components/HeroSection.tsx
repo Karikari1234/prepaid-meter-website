@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <div className="grid lg:grid lg:grid-cols-hero lg:items-center lg:gap-4">
       <div className="row-start-2 lg:order-last lg:col-start-2 lg:row-start-1">
-        <div className=" relative mx-auto h-[400px] max-w-[400px]">
+        <div className=" relative mx-auto h-[400px] max-w-[400px] md:h-[640px] md:max-w-[640px]">
           <Image
             priority={true}
             src="/hero-image.png"
