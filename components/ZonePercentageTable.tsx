@@ -20,22 +20,22 @@ const ZonePercentageTable = () => {
     {
       id: 1,
       name: "Chottogram",
-      totalCustomerNumber: "1,00,000",
+      totalCustomerNumber: "7,81,767",
     },
     {
       id: 2,
       name: "Comilla",
-      totalCustomerNumber: "1,50,000",
+      totalCustomerNumber: "2,92,608",
     },
     {
       id: 3,
       name: "Mymensingh",
-      totalCustomerNumber: "2,00,000",
+      totalCustomerNumber: "4,94,891",
     },
     {
       id: 4,
       name: "Sylhet",
-      totalCustomerNumber: "1,00,000",
+      totalCustomerNumber: "2,87,567",
     },
   ];
   return (
@@ -68,7 +68,7 @@ const ZonePercentageTable = () => {
             <TableRow>
               <TableCell></TableCell>
               <TableCell className="font-bold">Total</TableCell>
-              <TableCell className="text-center font-bold">5,50,000</TableCell>
+              <TableCell className="text-center font-bold">18,56,833</TableCell>
             </TableRow>
           </TableBody>
         </Table>
