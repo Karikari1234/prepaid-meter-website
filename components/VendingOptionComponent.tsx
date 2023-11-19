@@ -15,6 +15,7 @@ const VendingOptionComponent = () => {
         <a
           href="https://www.bkash.com/products-services/electricity-paybill"
           className="relative mx-auto flex h-16 w-64 items-center justify-center"
+          target="_blank"
         >
           <Image
             src="/bkash-logo.png"
@@ -28,6 +29,7 @@ const VendingOptionComponent = () => {
         <a
           href="https://nagad.com.bd/services/?service=bill-pay"
           className="relative mx-auto flex h-24 w-24 items-center justify-center"
+          target="_blank"
         >
           <Image
             src="/nagad-logo.svg"
@@ -39,8 +41,9 @@ const VendingOptionComponent = () => {
           ></Image>
         </a>
         <a
-          href="https://www.upaybd.com/products/Pay-Bill"
+          href="https://www.upaybd.com/services/details/bpdb-prepaid"
           className="relative mx-auto flex  h-24 w-24 items-center justify-center"
+          target="_blank"
         >
           <Image
             src="/upay-logo.webp"
@@ -54,6 +57,7 @@ const VendingOptionComponent = () => {
         <a
           href="https://trustaxiatapay.com/services/pay-bill/"
           className="relative mx-auto flex h-16 w-16  items-center justify-center"
+          target="_blank"
         >
           <Image
             src="/r-tap-logo.png"
@@ -67,6 +71,7 @@ const VendingOptionComponent = () => {
         <a
           href="https://sslcommerz.com/"
           className="relative mx-auto flex h-8 w-32  items-center justify-center"
+          target="_blank"
         >
           <Image
             src="/ssl-logo.png"
@@ -80,6 +85,7 @@ const VendingOptionComponent = () => {
         <a
           href="https://www.robi.com.bd/en/personal/my-robi-app"
           className="relative mx-auto flex h-16 w-16 items-center justify-center"
+          target="_blank"
         >
           <Image
             src="/r-robi-logo.png"
@@ -93,6 +99,7 @@ const VendingOptionComponent = () => {
         <a
           href="https://www.grameenphone.com/bpdb"
           className="relative mx-auto  h-16 w-64  items-center justify-center md:col-start-2"
+          target="_blank"
         >
           <Image
             src="/r-gp-logo.png"
