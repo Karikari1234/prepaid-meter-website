@@ -82,7 +82,9 @@ export function CheckInputForm() {
         className="space-y-8"
         key={key}
       >
-        <h1 className="text-2xl font-bold">Check Last 3 Token Numbers</h1>
+        <h1 className="text-2xl font-bold">
+          Check Last 3 Recharge Token Numbers
+        </h1>
 
         <div className="text-lg">
           <FormField
