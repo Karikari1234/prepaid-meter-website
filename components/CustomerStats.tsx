@@ -13,6 +13,10 @@ const CustomerStats = () => {
         milestone in its prepaid meter installation drive, with the total number
         of customers now exceeding 17.64 lakh (1.764 million).
       </p>
+      <p className="text-gray-700">
+        The month-wise data for new prepaid meter customers in 2022-23 is as
+        follows:
+      </p>
       <div className="h-96">
         <CustomerChart></CustomerChart>
       </div>
@@ -21,10 +25,6 @@ const CustomerStats = () => {
         meters, which represents a significant increase from the previous year.
         In the past 12 months, BPDB has added over 3.3 lakh new prepaid meter
         customers.
-      </p>
-      <p className="text-gray-700">
-        The month-wise data for new prepaid meter customers in 2022-23 is as
-        follows:
       </p>
     </div>
   );
