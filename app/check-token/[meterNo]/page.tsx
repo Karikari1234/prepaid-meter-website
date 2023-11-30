@@ -14,7 +14,7 @@ const ResultWithOnlyMeterNoPage = async ({
 }: {
   params: { meterNo: string };
 }) => {
-  let data: any = await fetchLastThreeTokens(params.meterNo);
+  let orderData: any = await fetchLastThreeTokens(params.meterNo);
   const customerData = await fetchCustomerData(params.meterNo);
   //const x = data as OrderObjectArray;
   //console.log(data);
@@ -23,22 +23,23 @@ const ResultWithOnlyMeterNoPage = async ({
   const newOrderArray: Orders = dummyOrders as Orders;
   //console.log(newOrderArray.order[0].customerNo);
 
-  return data?.result !== undefined && customerData?.result !== undefined ? (
+  return orderData?.result !== undefined &&
+    customerData?.result !== undefined ? (
     <div className="space-y-8">
       <h2 className="heading-text mb-4 !text-center !text-2xl md:mb-8">
         Customer Information
       </h2>
       <CustomerInfoTable customer={customerData} />
-      <TokenInfoTable tokens={data.result} />
+      <TokenInfoTable tokens={orderData.result} />
 
-      <div>
-        <pre>{`${JSON.stringify(data.result.orders, null, 2)}`}</pre>
+      {/* <div>
+        <pre>{`${JSON.stringify(orderData.result.orders, null, 2)}`}</pre>
       </div>
       <div>
         <pre>{`${JSON.stringify(customerData.result, null, 2)}`}</pre>
-      </div>
+      </div> */}
     </div>
-  ) : data?.res?.statusCode != 500 ? (
+  ) : orderData?.res?.statusCode != 500 ? (
     <div className="mb-96">No results found.</div>
   ) : (
     <div className="mb-96">An server error occured. Please try later.</div>
