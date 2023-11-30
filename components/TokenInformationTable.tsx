@@ -56,13 +56,15 @@ const TokenInfoTable = (props: Props) => {
           </TableHeader>
           <TableBody>
             {tokenInfo.map((token: any) => (
-              <TableRow key={token.orderNo._text}>
+              <TableRow key={`${token.orderNo._text}`}>
                 <TableCell>{token.date._text}</TableCell>
                 <TableCell>{token.tokens._text}</TableCell>
                 <TableCell>{token.sequence._text}</TableCell>
                 <TableCell>{token.grossAmount._text}</TableCell>
                 {token.tariffFees.tariffFee?.map((tariff: TariffFee) => (
-                  <TableCell key={tariff.chargeAmount._text}>
+                  <TableCell
+                    key={`${tariff.chargeDes._text} ${tariff.chargeAmount._text}`}
+                  >
                     {tariff.chargeAmount._text}
                   </TableCell>
                 ))}

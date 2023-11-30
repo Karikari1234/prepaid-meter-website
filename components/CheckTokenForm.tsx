@@ -13,12 +13,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import ReCAPTCHA from "react-google-recaptcha";
+import { verifyCaptcha } from "@/serverActions";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { RadioGroup } from "@/components/ui/radio-group";
 import { RadioGroupItem } from "@/components/ui/radio-group";
 import { Source_Code_Pro } from "next/font/google";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   Select,
   SelectContent,
@@ -27,6 +29,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useRouter } from "next/navigation";
+import { useTokenStore } from "@/lib/global/store";
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 const formSchema = z.object({
@@ -53,6 +56,17 @@ const defaultCheckInput: CheckInput = {
 export function CheckInputForm() {
   const router = useRouter();
   const [isDisabled, setIsDisabled] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [isVerified, setIsverified] = useState<boolean>(false);
+
+  const { setMeterNo, setCustomerNo } = useTokenStore();
+  async function handleCaptchaSubmission(token: string | null) {
+    // Server function to verify captcha
+    await verifyCaptcha(token)
+      .then(() => setIsverified(true))
+      .catch(() => setIsverified(false));
+  }
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
@@ -61,6 +75,8 @@ export function CheckInputForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsDisabled(true);
     //call api and route to new page with result.
+    setMeterNo(values.meterNo);
+    setCustomerNo(values.customerNo);
     if (values.customerNo) {
       router.push(`/check-token/${values.meterNo}/${values.customerNo}`);
     } else {
@@ -122,10 +138,16 @@ export function CheckInputForm() {
               </FormItem>
             )}
           />
+
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
+            ref={recaptchaRef}
+            onChange={handleCaptchaSubmission}
+          />
         </div>
 
         <div className="space-x-4">
-          <Button className="bg-green" type="submit" disabled={isDisabled}>
+          <Button className="bg-green" type="submit" disabled={!isVerified}>
             Submit
           </Button>
         </div>
