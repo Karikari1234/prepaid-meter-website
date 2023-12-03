@@ -1,4 +1,5 @@
 // Fetch two API endpoints for GET token and customer data
+"use server";
 
 import axios, { AxiosResponse } from "axios";
 import { CustomerInformation } from "./responseObject/customerInformation";

@@ -30,7 +30,6 @@ import {
 } from "@/components/ui/select";
 import { useRouter } from "next/navigation";
 import { useTokenStore } from "@/lib/global/store";
-const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 const formSchema = z.object({
   meterNo: z

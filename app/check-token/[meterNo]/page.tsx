@@ -30,6 +30,9 @@ const ResultWithOnlyMeterNoPage = async ({
         Customer Information
       </h2>
       <CustomerInfoTable customer={customerData} />
+      <h2 className="heading-text mb-4 !text-center !text-2xl md:mb-8">
+        Last 3 Recharge Token Information
+      </h2>
       <TokenInfoTable tokens={orderData.result} />
 
       {/* <div>
