@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import ReCAPTCHA from "react-google-recaptcha";
-import { verifyCaptcha } from "@/serverActions";
+import { verifyCaptcha } from "@/app/serverActions";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { RadioGroup } from "@/components/ui/radio-group";
