@@ -40,17 +40,14 @@ const formSchema = z.object({
     .min(12, {
       message: "Minimum 12 digits required",
     }),
-  customerNo: z.string(),
 });
 
 interface CheckInput {
   meterNo: string;
-  customerNo: string;
 }
 
 const defaultCheckInput: CheckInput = {
   meterNo: "010100000010",
-  customerNo: "3214789",
 };
 
 export function CheckInputForm() {
@@ -76,17 +73,9 @@ export function CheckInputForm() {
     setIsDisabled(true);
     //call api and route to new page with result.
     setMeterNo(values.meterNo);
-    setCustomerNo(values.customerNo);
-    if (values.customerNo) {
-      router.push(`/check-token/${values.meterNo}/${values.customerNo}`);
-    } else {
-      router.push(`/check-token/${values.meterNo}`);
-    }
-  }
 
-  useEffect(() => {
-    //window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+    router.push(`/check-token/${values.meterNo}`);
+  }
 
   const [val, setVal] = useState(defaultCheckInput);
   const [key, setKey] = useState(0);
@@ -121,24 +110,6 @@ export function CheckInputForm() {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="customerNo"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Customer number (optional)</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Input customer number"
-                    {...form.register("customerNo")}
-                  />
-                </FormControl>
-                <FormDescription>Provide customer number.</FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <ReCAPTCHA
             sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
             ref={recaptchaRef}
@@ -147,7 +118,11 @@ export function CheckInputForm() {
         </div>
 
         <div className="space-x-4">
-          <Button className="bg-green" type="submit" disabled={!isVerified}>
+          <Button
+            className="w-full bg-green"
+            type="submit"
+            disabled={!isVerified}
+          >
             Submit
           </Button>
         </div>
