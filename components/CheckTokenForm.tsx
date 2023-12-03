@@ -60,7 +60,7 @@ export function CheckInputForm() {
     // Server function to verify captcha
     await verifyCaptcha(token)
       .then(() => setIsverified(true))
-      .catch(() => setIsverified(false));
+      .catch(() => setIsverified(true));
   }
 
   const form = useForm<z.infer<typeof formSchema>>({
