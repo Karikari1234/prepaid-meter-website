@@ -17,19 +17,10 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { verifyCaptcha } from "@/app/serverActions";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
-import { RadioGroup } from "@/components/ui/radio-group";
-import { RadioGroupItem } from "@/components/ui/radio-group";
-import { Source_Code_Pro } from "next/font/google";
 import { useEffect, useState, useRef } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { useRouter } from "next/navigation";
-import { useTokenStore } from "@/lib/global/store";
+import mOnSubmit from "./OnSubmitMeterNo";
+import { useTokenResStore } from "@/lib/global/store";
 
 const formSchema = z.object({
   meterNo: z
@@ -54,8 +45,8 @@ export function CheckInputForm() {
   const [isDisabled, setIsDisabled] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [isVerified, setIsverified] = useState<boolean>(false);
-
-  const { setMeterNo, setCustomerNo } = useTokenStore();
+  const { responseBody, setResponseBody } = useTokenResStore();
+  //setResponseBody(null);
   async function handleCaptchaSubmission(token: string | null) {
     // Server function to verify captcha
     await verifyCaptcha(token)
@@ -68,15 +59,18 @@ export function CheckInputForm() {
   });
   //const toast = useToast();
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsDisabled(true);
-    //call api and route to new page with result.
-    setMeterNo(values.meterNo);
-
-    router.push(`/check-token/${values.meterNo}`);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const resObj = await mOnSubmit(values);
+      setResponseBody(null);
+      setResponseBody(resObj);
+      //console.log(responseBody);
+      router.push("/check-token/tokenInfo");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  const [val, setVal] = useState(defaultCheckInput);
   const [key, setKey] = useState(0);
 
   return (
@@ -117,11 +111,7 @@ export function CheckInputForm() {
         </div>
 
         <div className="space-x-4">
-          <Button
-            className="w-full bg-green"
-            type="submit"
-            disabled={!isVerified}
-          >
+          <Button className="w-full bg-green" type="submit" disabled={false}>
             Submit
           </Button>
         </div>

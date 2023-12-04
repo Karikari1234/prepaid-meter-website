@@ -1,3 +1,5 @@
+"use client";
+
 import {
   CustomerInformation,
   Result,
@@ -18,6 +20,7 @@ interface Props {
 const CustomerInfoTable = (props: Props) => {
   const { customer } = props;
   const customerInfo = customer.result;
+  //const { meterNo } = useMeterNoStore();
   return (
     <>
       <div className="md:mx-auto md:max-w-xl">
