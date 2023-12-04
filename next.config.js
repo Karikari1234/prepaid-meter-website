@@ -7,7 +7,7 @@ const nextConfig = {
       },
       experimental: {
         serverActions: {
-          allowedOrigins: ['180.211.137.7:90']
+          allowedOrigins: ['localhost:3000','info.bpdbservices.net']
         }
       }
 }
