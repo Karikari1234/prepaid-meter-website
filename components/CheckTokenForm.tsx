@@ -111,7 +111,11 @@ export function CheckInputForm() {
         </div>
 
         <div className="space-x-4">
-          <Button className="w-full bg-green" type="submit" disabled={false}>
+          <Button
+            className="w-full bg-green"
+            type="submit"
+            disabled={!isVerified}
+          >
             Submit
           </Button>
         </div>
