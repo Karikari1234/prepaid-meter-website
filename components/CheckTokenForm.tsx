@@ -42,6 +42,7 @@ const defaultCheckInput: CheckInput = {
 
 export function CheckInputForm() {
   const router = useRouter();
+  const { toast } = useToast();
   const [isDisabled, setIsDisabled] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [isVerified, setIsverified] = useState<boolean>(false);
@@ -61,11 +62,18 @@ export function CheckInputForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const resObj = await mOnSubmit(values);
-      setResponseBody(null);
-      setResponseBody(resObj);
-      //console.log(responseBody);
-      router.push("/check-token/tokenInfo");
+      if (isVerified) {
+        const resObj = await mOnSubmit(values);
+        setResponseBody(null);
+        setResponseBody(resObj);
+        //console.log(responseBody);
+        router.push("/check-token/tokenInfo");
+      } else {
+        toast({
+          title: "Please verify that you are not a robot.",
+          description: "Reload and try again.",
+        });
+      }
     } catch (error) {
       console.log(error);
     }
