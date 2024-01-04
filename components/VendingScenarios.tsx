@@ -100,6 +100,13 @@ const PrepaidMeterCharges = () => {
         meter rent monthly.
       </p>
 
+      <p className="mb-4">
+        In the first scenario, the customer deos vending for the <b>1st</b> time
+        in the month.In second scenario customer does vending <b>2nd</b> time in
+        the same month. And in the third scenario, customer does vending after
+        three months.
+      </p>
+
       {/* Render scenarios */}
       {scenariosData.map((scenario, index) => (
         <div
