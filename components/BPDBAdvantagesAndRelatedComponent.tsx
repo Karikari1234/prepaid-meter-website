@@ -7,11 +7,10 @@ const BPDBAdvantagesAndRelatedComponent = () => {
         </h2>
         <p className="mb-2">
           Traditional postpaid billing involves meter readers collecting
-          readings from consumers' postpaid meters, leading to time-consuming
-          and manpower-intensive processes. Billing accuracy is compromised by
-          human errors, and consumers face challenges paying bills after
-          electricity usage. To address these issues, BPDB introduced prepaid
-          metering.
+          readings from consumers postpaid meters, leading to time-consuming and
+          manpower-intensive processes. Billing accuracy is compromised by human
+          errors, and consumers face challenges paying bills after electricity
+          usage. To address these issues, BPDB introduced prepaid metering.
         </p>
       </div>
 
@@ -30,11 +29,11 @@ const BPDBAdvantagesAndRelatedComponent = () => {
             energy-conscious behavior.
           </li>
           <li>
-            Elimination of overbilling: Users only pay for what they've prepaid,
+            Elimination of overbilling: Users only pay for what theyve prepaid,
             avoiding concerns about end-of-month bills.
           </li>
           <li>
-            Accuracy in billing: Prepayment meters don't rely on meter readings,
+            Accuracy in billing: Prepayment meters dont rely on meter readings,
             preventing overcharging.
           </li>
           <li>
