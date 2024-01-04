@@ -147,7 +147,7 @@ const PrepaidMeterCharges = () => {
       <p className="mb-4">Prepaid meter consumers enjoy a 1% rebate.</p>
 
       <p className="mb-4">
-        Before inserting the vending token into the meter, it's necessary to
+        Before inserting the vending token into the meter, its necessary to
         check the meter balance. If the meter balance is negative (due to
         emergency or friendly hour usage), then this negative balance will be
         deducted from the recharged amount.
