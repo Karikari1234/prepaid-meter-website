@@ -94,20 +94,18 @@ export function EnergyCalculatorForm() {
     toast({
       title: "Your Meter Charges: ",
       description: (
-        <div
-          className={`${sourceCodePro.className} text-md rounded-sm bg-toast-success p-2 text-white`}
-        >
-          <div>
-            <div>VAT(5%): {result.vat} BDT</div>
+        <div className={`text-md rounded-sm bg-toast-success p-2 text-white`}>
+          <div className="space-y-1">
+            <div>Total Energy Cost Charge: {result.totalCharge} BDT</div>
             <div>
               Demand Charge (Sanction Load*35/kWh Monthly):{" "}
               {result.demandCharge} BDT
             </div>
-            <div>Meter Rent (Monthly): {result.meterRent} BDT</div>
-            <div>Total Charge: {result.totalCharge} BDT</div>
+            <div>Meter Rent 1P(40/Month): {result.meterRent} BDT</div>
+            <div>VAT(5%): {result.vat} BDT</div>
             <div>Rebate(1%): -{result.rebate} BDT</div>
             <div className="font-semibold">
-              <span className="font-semibold">Total Energy Amount:</span>{" "}
+              <span className="font-semibold">Total Gross Energy Amount:</span>{" "}
               {result.totalEnergy} BDT
             </div>
           </div>
@@ -143,23 +141,23 @@ export function EnergyCalculatorForm() {
       >
         <h1 className="text-3xl font-bold">Prepaid Meter Energy Calculator</h1>
         <div
-          className={`${sourceCodePro.className} rounded-sm ${
+          className={`rounded-sm ${
             result == defaultMeterCharges
               ? `bg-gray-100`
               : `animate-fade  bg-toast-success text-white animate-delay-300 animate-once`
           } p-2 text-base`}
         >
-          <div>
-            <div>VAT(5%): {result.vat} BDT</div>
+          <div className="space-y-1">
+            <div>Total Energy Cost Charge: {result.totalCharge} BDT</div>
             <div>
               Demand Charge (Sanction Load*35/kWh Monthly):{" "}
               {result.demandCharge} BDT
             </div>
-            <div>Meter Rent (Monthly): {result.meterRent} BDT</div>
-            <div>Total Charge: {result.totalCharge} BDT</div>
+            <div>Meter Rent 1P(40/Month): {result.meterRent} BDT</div>
+            <div>VAT(5%): {result.vat} BDT</div>
             <div>Rebate(1%): -{result.rebate} BDT</div>
             <div className="font-semibold">
-              <span className="font-semibold">Total Energy Amount:</span>{" "}
+              <span className="font-semibold">Total Gross Energy Amount:</span>{" "}
               {result.totalEnergy} BDT
             </div>
           </div>
@@ -198,6 +196,7 @@ export function EnergyCalculatorForm() {
                   <Input
                     type="number"
                     placeholder="2"
+                    defaultValue={"2"}
                     {...form.register("sanctionLoad", { valueAsNumber: true })}
                   />
                 </FormControl>
