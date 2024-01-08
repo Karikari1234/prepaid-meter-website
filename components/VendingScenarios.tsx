@@ -6,39 +6,34 @@ const PrepaidMeterCharges = () => {
     // Scenario 1
     [
       {
-        chargeDetails: "Vat (5%)",
-        calculation: "1000 x (5 / 105)",
-        amount: 47.62,
-      },
-      {
         chargeDetails: "Demand Charge",
         calculation: "1 month x (2 Kwh x 35.00 BDT)",
         amount: 70.0,
       },
       {
         chargeDetails: "Meter Rent",
-        calculation: "1 month x 35.00 BDT (Reduced from 40.00 BDT)",
-        amount: 35.0,
+        calculation: "1 month x 40.00 BDT",
+        amount: 40.0,
       },
-      { chargeDetails: "Total Charge", calculation: "", amount: 152.62 },
-      {
-        chargeDetails: "Rebate (1%)",
-        calculation: "1/101 x (1000 - 47.62 - 35.00)",
-        amount: 9.04,
-      },
-      {
-        chargeDetails: "Total Energy",
-        calculation: "1000 - 152.62 + 9.04",
-        amount: 856.42,
-      },
-    ],
-    // Scenario 2
-    [
       {
         chargeDetails: "Vat (5%)",
         calculation: "1000 x (5 / 105)",
         amount: 47.62,
       },
+      {
+        chargeDetails: "Rebate (1%)",
+        calculation: "1/101 x (1000 - 47.62 - 40.00)",
+        amount: -9.03,
+      },
+
+      {
+        chargeDetails: "Energy Amount",
+        calculation: "",
+        amount: 851.41,
+      },
+    ],
+    // Scenario 2
+    [
       {
         chargeDetails: "Demand Charge",
         calculation: "0 month x (2 Kwh x 35.00 BDT)",
@@ -46,43 +41,52 @@ const PrepaidMeterCharges = () => {
       },
       {
         chargeDetails: "Meter Rent",
-        calculation: "0 month x 35.00 BDT (Reduced from 40.00 BDT)",
+        calculation: "0 month x 40.00 BDT",
         amount: 0.0,
       },
-      { chargeDetails: "Total Charge", calculation: "", amount: 47.62 },
-      {
-        chargeDetails: "Rebate (1%)",
-        calculation: "1/101 x (1000 - 47.62)",
-        amount: 9.43,
-      },
-      {
-        chargeDetails: "Total Energy",
-        calculation: "1000 - 47.62 + 9.43",
-        amount: 961.81,
-      },
-    ],
-    // Scenario 3
-    [
       {
         chargeDetails: "Vat (5%)",
         calculation: "1000 x (5 / 105)",
         amount: 47.62,
       },
       {
+        chargeDetails: "Rebate (1%)",
+        calculation: "1/101 x (1000 - 47.62 - 0.00)",
+        amount: -9.43,
+      },
+
+      {
+        chargeDetails: "Energy Amount",
+        calculation: "",
+        amount: 961.81,
+      },
+    ],
+    // Scenario 3
+    [
+      {
         chargeDetails: "Demand Charge",
-        calculation: "3 months x (2 Kwh x 35.00 BDT)",
-        amount: 105.0,
+        calculation: "3 month x (2 Kwh x 35.00 BDT)",
+        amount: 210.0,
       },
       {
         chargeDetails: "Meter Rent",
-        calculation: "3 months x 35.00 BDT (Reduced from 40.00 BDT)",
-        amount: 105.0,
+        calculation: "3 month x 40.00 BDT",
+        amount: 120.0,
       },
-      { chargeDetails: "Total Charge", calculation: "", amount: 257.62 },
       {
-        chargeDetails: "Total Energy",
-        calculation: "1000 - 257.62 + 8.24",
-        amount: 750.62,
+        chargeDetails: "Vat (5%)",
+        calculation: "1000 x (5 / 105)",
+        amount: 47.62,
+      },
+      {
+        chargeDetails: "Rebate (1%)",
+        calculation: "1/101 x (1000 - 47.62 - 120.00)",
+        amount: -8.24,
+      },
+      {
+        chargeDetails: "Energy Amount",
+        calculation: "",
+        amount: 630.62,
       },
     ],
   ];
@@ -135,9 +139,27 @@ const PrepaidMeterCharges = () => {
               <tbody>
                 {scenario.map((row, rowIndex) => (
                   <tr key={rowIndex}>
-                    <td className="border-b px-4 py-2">{row.chargeDetails}</td>
-                    <td className="border-b px-4 py-2">{row.calculation}</td>
-                    <td className="border-b px-4 py-2">{row.amount}</td>
+                    <td
+                      className={`border-b px-4 py-2 text-center ${
+                        row.chargeDetails === "Energy Amount" ? "font-bold" : ""
+                      }`}
+                    >
+                      {row.chargeDetails}
+                    </td>
+                    <td
+                      className={`border-b px-4 py-2 text-center ${
+                        row.chargeDetails === "Energy Amount" ? "font-bold" : ""
+                      }`}
+                    >
+                      {row.calculation}
+                    </td>
+                    <td
+                      className={`border-b px-4 py-2 text-center ${
+                        row.chargeDetails === "Energy Amount" ? "font-bold" : ""
+                      }`}
+                    >
+                      {row.amount}
+                    </td>
                   </tr>
                 ))}
               </tbody>
