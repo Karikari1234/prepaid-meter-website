@@ -81,7 +81,12 @@ const Header = () => {
               key={item.title}
               className="px-4 py-2 text-center hover:bg-white hover:text-green-light"
             >
-              <Link href={item.route}>{item.title}</Link>
+              <Link
+                href={item.route}
+                target={item.route.startsWith("http") ? "_blank" : undefined}
+              >
+                {item.title}
+              </Link>
             </li>
           ))}
         </ul>
