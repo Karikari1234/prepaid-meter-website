@@ -31,11 +31,11 @@ const ShortCodeTable = () => {
           <TableRow className="bg-gray-100">
             <TableHead className="">Serial No.</TableHead>
             <TableHead className="">Information</TableHead>
-            <TableHead>Hexing Meter</TableHead>
-            <TableHead>Inhe Meter(1P)</TableHead>
-            <TableHead>Inhe Meter(3P)</TableHead>
-            <TableHead>Linyang Meter</TableHead>
-            <TableHead>Eastern Meter(EMPP0)</TableHead>
+            <TableHead>All Meters</TableHead>
+            <TableHead>(Legacy) Inhe Meter(1P)</TableHead>
+            <TableHead>(Legacy) Inhe Meter(3P)</TableHead>
+            <TableHead>(Legacy) Linyang Meter</TableHead>
+            <TableHead>(Legacy) Eastern Meter(EMPP0)</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>{listOfShortCode}</TableBody>
