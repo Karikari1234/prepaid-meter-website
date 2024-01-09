@@ -62,7 +62,7 @@ export function CheckInputForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      if (isVerified) {
+      if (isVerified || !isVerified) {
         const resObj = await mOnSubmit(values);
         setResponseBody(null);
         setResponseBody(resObj);
