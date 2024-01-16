@@ -11,7 +11,7 @@ export default function Home({
   searchParams: URLSearchParams;
 }) {
   return (
-    <div className="flex flex-col space-y-16">
+    <div className="flex flex-col space-y-2">
       <HeroSection />
       <VendingOptionComponent />
       <AboutComponent />
