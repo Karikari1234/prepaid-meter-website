@@ -13,25 +13,23 @@ const fetchCustomerData = async (meterNo: string) => {
   //   );
   //let res: CustomerInformation;
   let data = qs.stringify({
-    reqXml: `<xml  meterNo="${meterNo}" userName="zubayer" userPass="m7PM/lj+MYKoUcaydxQQe6Ez6Qal5N5DQAArpAmFcgOn+TLK3tN+VA==" />`,
+    reqXml: `<xml  meterNo="${meterNo}" userName="CallCentre" userPass="7sysRNh59ie91wD6UTqUAlIQjeZbzEw9vETTVu/yd0O0iCdSTJ0V2g==" />`,
   });
-
-  //console.log(data);
 
   let config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: `${process.env.TEST_API_URL}/prepay/prepay/testCode/customIbcs!getCustomerInfo.do`,
+    url: `${process.env.LIVE_API_URL}/prepay/prepay/testCode/customIbcs!getCustomerInfo.do`,
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
-      Cookie: "userName=zubayer",
+      Cookie: "userName=CallCentre",
     },
     data: data,
   };
 
   try {
     const res = await axios.request(config);
-    //console.log(res.data);
+    console.log(res.data);
     //if (res.status == 500) throw new Error("Internal Server Error");
     return JSON.parse(
       convert.xml2json(
@@ -64,17 +62,17 @@ const fetchLastThreeTokens = async (meterNo: string, customerNo?: string) => {
   }
 
   let data = qs.stringify({
-    reqXml: `<xml  meterNo="${meterNo}" customerNo="${customerNo}" userName="zubayer" userPass="m7PM/lj+MYKoUcaydxQQe6Ez6Qal5N5DQAArpAmFcgOn+TLK3tN+VA==" />`,
+    reqXml: `<xml  meterNo="${meterNo}" customerNo="${customerNo}" userName="CallCentre" userPass="7sysRNh59ie91wD6UTqUAlIQjeZbzEw9vETTVu/yd0O0iCdSTJ0V2g==" />`,
   });
 
   let config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: "http://180.211.137.7:90/prepay/prepay/testCode/customIbcs!callCenterPrepaidTokenAPI.do",
+    url: `${process.env.LIVE_API_URL}/prepay/prepay/testCode/customIbcs!callCenterPrepaidTokenAPI.do`,
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
       Cookie:
-        "userName=zubayer; JSESSIONID=52C574BCC857F3EC71AD25FA02CFBDF2.tomcat7_a",
+        "userName=CallCentre; JSESSIONID=52C574BCC857F3EC71AD25FA02CFBDF2.tomcat7_a",
     },
     data: data,
   };
