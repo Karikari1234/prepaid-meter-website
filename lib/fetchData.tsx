@@ -44,7 +44,7 @@ const fetchCustomerData = async (meterNo: string) => {
       ),
     ) as CustomerInformation;
   } catch (error) {
-    //console.log(error);
+    console.log(error);
   }
 
   //return res;
@@ -58,7 +58,7 @@ const fetchLastThreeTokens = async (meterNo: string, customerNo?: string) => {
       customerNo = res.result.customerAccountNo._text;
     }
   } catch (error) {
-    //console.log(error);
+    console.log(error);
   }
 
   let data = qs.stringify({
@@ -94,7 +94,7 @@ const fetchLastThreeTokens = async (meterNo: string, customerNo?: string) => {
       ),
     ) as OrderObjectArray;
   } catch (error) {
-    //console.log(error);
+    console.log(error);
   }
 };
 
