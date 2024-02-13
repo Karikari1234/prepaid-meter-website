@@ -28,7 +28,6 @@ const TokenInfoTable = (props: Props) => {
     //console.log(props.tokens);
     let tokenInfo: Array<Order> = tokens.orders.order;
     //console.log(tokenInfo);
-    const router = useRouter();
 
     tokenInfo.map((token) => token.tariffFees.tariffFee?.sort(get_item_name));
 
