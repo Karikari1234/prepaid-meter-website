@@ -57,6 +57,10 @@ const CustomerInfoTable = (props: Props) => {
               <TableCell className="text-right">Last Recharge Time</TableCell>
               <TableCell>{customerInfo.lastRechargeTime._text}</TableCell>
             </TableRow>
+            <TableRow>
+              <TableCell className="text-right">SND Division</TableCell>
+              <TableCell>{customerInfo.sndDivision._text}</TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </div>
