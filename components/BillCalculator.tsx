@@ -52,6 +52,7 @@ interface MeterCharges {
   totalEnergy: number;
   ownedBy?: string;
   firstTime?: string;
+  availableUnit: number;
 }
 
 const defaultMeterCharges: MeterCharges = {
@@ -63,6 +64,7 @@ const defaultMeterCharges: MeterCharges = {
   totalEnergy: 0.0,
   ownedBy: "",
   firstTime: "",
+  availableUnit: 0.0,
 };
 
 export function EnergyCalculatorForm() {
@@ -74,13 +76,14 @@ export function EnergyCalculatorForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     const vat: number = (values.rechargeAmount * 5) / 105;
     const demandCharge: number =
-      values.firstTime == "yes" ? values.sanctionLoad * 35 : 0.0;
+      values.firstTime == "yes" ? values.sanctionLoad * 42 : 0.0;
     const meterRent: number =
       values.ownedBy == "bpdb" && values.firstTime == "yes" ? 40.0 : 0.0;
     const totalCharge: number = vat + demandCharge + meterRent;
     const rebate: number =
-      (1 / 101) * (values.rechargeAmount - vat - meterRent);
+      (0.5 / 100.5) * (values.rechargeAmount - vat - meterRent);
     const totalEnergy: number = values.rechargeAmount - totalCharge + rebate;
+    const availableUnit: number = energyAmountToUnit(totalEnergy)
     let result: MeterCharges = {
       ...defaultMeterCharges,
       vat: vat.toFixed(2) as unknown as number,
@@ -89,6 +92,7 @@ export function EnergyCalculatorForm() {
       totalCharge: totalCharge.toFixed(2) as unknown as number,
       rebate: rebate.toFixed(2) as unknown as number,
       totalEnergy: totalEnergy.toFixed(2) as unknown as number,
+      availableUnit: availableUnit.toFixed(2) as unknown as number,
     };
     //console.log(res);
     toast({
@@ -98,15 +102,19 @@ export function EnergyCalculatorForm() {
           <div className="space-y-1">
             <div>Total Energy Cost Charge: {result.totalCharge} BDT</div>
             <div>
-              Demand Charge (Sanction Load*35/kWh Monthly):{" "}
+              Demand Charge (Sanction Load*42/kWh Monthly):{" "}
               {result.demandCharge} BDT
             </div>
             <div>Meter Rent 1P(40/Month): {result.meterRent} BDT</div>
             <div>VAT(5%): {result.vat} BDT</div>
-            <div>Rebate(1%): -{result.rebate} BDT</div>
+            <div>Rebate(0.5%): -{result.rebate} BDT</div>
             <div className="font-semibold">
               <span className="font-semibold">Total Gross Energy Amount:</span>{" "}
               {result.totalEnergy} BDT
+            </div>
+            <div className="font-semibold">
+              <span className="font-semibold">Total Available Unit:</span>{" "}
+              {result.availableUnit} kWh (Available Unit is being calculated based on the starting of the month and initial balance is zero.)
             </div>
           </div>
         </div>
@@ -116,6 +124,28 @@ export function EnergyCalculatorForm() {
 
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
+
+  function energyAmountToUnit(amount: number) {
+    let unit = 0.0;
+    if(amount>0 && amount<4.63*50) {
+      unit = amount / 4.63;
+    }
+    else {
+      if(amount>0 && amount/5.26>75) {unit = unit + 75; amount = amount - unit*5.26} else if (amount>0) {unit = unit + (amount/5.26); amount = amount - (unit*5.26)}
+      //console.log(unit, amount);
+      if(amount>0 && amount/7.20>125) {unit = unit + 125; amount = amount - unit*7.20} else if (amount>0)  {unit = unit + (amount/7.20); amount = amount - (unit*7.20)}
+      //console.log(unit, amount);
+      if(amount>0 && amount/7.59>100) {unit = unit + 100; amount = amount - unit*7.59} else if (amount>0) {unit = unit + (amount/7.59); amount = amount - (unit*7.59)}
+      //console.log(unit, amount);
+      if(amount>0 && amount/8.02>100) {unit = unit + 100; amount = amount - unit*8.02} else if (amount>0) {unit = unit + (amount/8.02); amount = amount - (unit*8.02)}
+      //console.log(unit, amount);
+      if(amount>0 && amount/12.67>200) {unit = unit + 200; amount = amount - unit*12.67} else if (amount>0) {unit = unit + (amount/12.67); amount = amount - (unit*12.67)}
+      //console.log(unit, amount);
+      if(amount>0) {unit = unit + (amount/14.61);}
+      //console.log(unit, amount);
+    }
+    return unit;
+    }
 
   function onReset() {
     setResult(defaultMeterCharges);
@@ -150,15 +180,19 @@ export function EnergyCalculatorForm() {
           <div className="space-y-1">
             <div>Total Energy Cost Charge: {result.totalCharge} BDT</div>
             <div>
-              Demand Charge (Sanction Load*35/kWh Monthly):{" "}
+              Demand Charge (Sanction Load*42/kWh Monthly):{" "}
               {result.demandCharge} BDT
             </div>
             <div>Meter Rent 1P(40/Month): {result.meterRent} BDT</div>
             <div>VAT(5%): {result.vat} BDT</div>
-            <div>Rebate(1%): -{result.rebate} BDT</div>
+            <div>Rebate(0.5%): -{result.rebate} BDT</div>
             <div className="font-semibold">
               <span className="font-semibold">Total Gross Energy Amount:</span>{" "}
               {result.totalEnergy} BDT
+            </div>
+            <div className="font-semibold">
+              <span className="font-semibold">Total Available Unit:</span>{" "}
+              {result.availableUnit} kWh (Available Unit is being calculated based on the starting of the month and initial balance is zero.)
             </div>
           </div>
         </div>
