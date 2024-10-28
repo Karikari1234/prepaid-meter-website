@@ -1,6 +1,8 @@
 import { EnergyCalculatorForm } from "@/components/BillCalculator";
 
 const BillCalculator = () => {
+  // State to track the toggle button state
+  
   return (
     <div className="mx-auto max-w-md">
       <div className="mb-4 rounded border border-gray-200 p-8 shadow-lg">
