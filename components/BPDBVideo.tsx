@@ -1,4 +1,4 @@
-const YouTubeEmbed = () => {
+const VideoEmbed = () => {
   return (
     <div>
       <h1 className="heading-text mb-4 !text-center md:mb-8">
@@ -20,9 +20,9 @@ const YouTubeEmbed = () => {
           }}
         >
           <iframe
-            src={`https://www.youtube.com/embed/ksch44-8S-Q?si=CcJWiQQDqaGRXSQL?rel=0&modestbranding=1&mute=0&autoplay=1&vq=hd1080`}
+            src={`https://drive.google.com/file/d/1V3fOSFWBLwi_49q3UppmMJs35zTuC8yd/preview`}
             title="BPDB Pre Paid Metering System"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{
               position: "absolute",
@@ -39,4 +39,4 @@ const YouTubeEmbed = () => {
   );
 };
 
-export default YouTubeEmbed;
+export default VideoEmbed;

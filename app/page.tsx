@@ -4,7 +4,7 @@ import MyComponent from "@/components/DummyDataFetch";
 import FAQAccordion from "@/components/FAQ";
 import HeroSection from "@/components/HeroSection";
 import VendingOptionComponent from "@/components/VendingOptionComponent";
-import YouTubeEmbed from "@/components/BPDBVideo";
+import VideoEmbed from "@/components/BPDBVideo";
 
 export default function Home({
   searchParams,
@@ -16,8 +16,8 @@ export default function Home({
       <HeroSection />
       <VendingOptionComponent />
       <AboutComponent />
-      <YouTubeEmbed />
-      <h1 className="heading-text !text-center !text-4xl">
+      <VideoEmbed />
+      <h1 className="heading-text !text-center !text-4xl pt-8">
         Frequently Asked Questions
       </h1>
       <div className="md:mx-auto md:w-5/6">
