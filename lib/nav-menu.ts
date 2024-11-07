@@ -8,8 +8,9 @@ export const topMenu: Array<MenuItem> = [
   { title: "About", route: "/about" },
   {
     title: "BPDB Issue Tracking",
-    route: "http://issuetracker.bpdbservices.net/login",
+    route: "http://180.211.137.8:8001/",
   },
+  // { title: "Load Calculator", route: "/load-calculator"},
   { title: "Calculate Meter Charges", route: "/bill-calculator" },
   { title: "Check Meter Token", route: "/check-token" },
   { title: "FAQ", route: "/faq" },
