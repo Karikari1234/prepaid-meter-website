@@ -43,6 +43,11 @@ const HeroSection = () => {
               Check last 3 recharge token
             </button>
           </Link>
+          <Link href="/load-calculator">
+            <button className="rounded border border-green bg-green px-4 py-2 text-base font-semibold text-white md:text-base">
+              Load Calculator
+            </button>
+          </Link>
         </div>
       </div>
     </div>
